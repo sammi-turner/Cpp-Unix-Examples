@@ -1,6 +1,6 @@
-# Cpp-Ncurses-Boilerplate
+# C++ Examples
 
-[GNU make](https://en.wikipedia.org/wiki/Make_(software)) template for GNU/Linux and MacOS.
+A [GNU make](https://en.wikipedia.org/wiki/Make_(software)) template for Linux and MacOS.
 
 ## To build
 
@@ -23,13 +23,13 @@ From the bin directory, enter
 Adding the following alias to your shell dotfile
 
 ```
-alias foo='make && ./build/main'
+alias bar='make && ./build/main'
 ```
 
 which will allow you to enter the command
 
 ```
-foo
+bar
 ```
 
 to build and run the binary from the root directory.
