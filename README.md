@@ -10,7 +10,7 @@ From the root directory, enter
 make
 ```
 
-## Useful aliases
+## Useful shell aliases
 
 ```
 alias run='./bin/main'
