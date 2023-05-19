@@ -10,26 +10,11 @@ From the root directory, enter
 make
 ```
 
-## To run 
-
-From the bin directory, enter
+## Useful aliases
 
 ```
-./main
-```
-
-## To build and run
-
-Adding the following alias to your shell dotfile
-
-```
-alias bar='make && ./build/main'
-```
-
-which will allow you to enter the command
-
-```
-bar
+alias run='./bin/main'
+alias mar='make && ./bin/main'
 ```
 
 to build and run the binary from the root directory.
