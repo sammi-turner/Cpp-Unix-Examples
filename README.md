@@ -28,3 +28,13 @@ to build and run the binary from the root directory.
 .h files go in the include directory.
 
 Don't forget to use [include guards](https://en.wikipedia.org/wiki/Include_guard) on all headers.
+
+## List editor
+
+This app implements basic [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) on lists, in addition to 'swap', 'copy', 'cut', 'paste', 'insert', 'load', 'save', and 'exit'.
+
+To return to the main menu, simply enter a blank input.
+
+## Yahtzee
+
+A solitaire, command line version of the [famous dice game](https://en.wikipedia.org/wiki/Yahtzee).
