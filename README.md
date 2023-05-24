@@ -12,12 +12,17 @@ make
 
 ## Useful shell aliases
 
+To run the binary.
+
 ```
 alias run='./bin/main'
-alias mar='make && ./bin/main'
 ```
 
-to build and run the binary from the root directory.
+To build and run the binary.
+
+```
+alias mar='make && ./bin/main'
+```
 
 ## Source files
 
