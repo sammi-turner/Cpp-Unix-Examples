@@ -1,8 +1,6 @@
-# C++ Examples
+# MacOS C++
 
-A [GNU make](https://en.wikipedia.org/wiki/Make_(software)) template for MacOS.
-
-This code will NOT work properly on Linux or Windows!
+This code will NOT work properly on Windows or Linux. 
 
 ## To build
 
