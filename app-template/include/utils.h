@@ -1,7 +1,3 @@
-#ifndef BACKSPACE 
-#define BACKSPACE 128
-#endif
-
 #ifndef UTILS_H
 #define UTILS_H
 
