@@ -1,4 +1,4 @@
-# Ncurses Template
+# Unix C++ Template
 
 A C++ project template for MacOS and Linux.
 
