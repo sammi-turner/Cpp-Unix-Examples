@@ -1,6 +1,6 @@
-# Unix TUI Template
+# Ncurses Template
 
-A text user interface template for MacOS and Linux.
+An ncurses project template for MacOS and Linux.
 
 ## To build
 
