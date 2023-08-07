@@ -2,6 +2,8 @@
 
 An ncurses project template for MacOS and Linux.
 
+<br>
+
 ## To build
 
 From the root directory, enter
@@ -9,6 +11,8 @@ From the root directory, enter
 ```
 make
 ```
+
+<br>
 
 ## Useful shell aliases
 
@@ -23,16 +27,21 @@ To build and run the binary.
 ```
 alias mar='make && ./bin/main'
 ```
+<br>
 
 ## Source files
 
 .cpp files go in the src directory.
+
+<br>
 
 ## Header files
 
 .h files go in the include directory.
 
 Don't forget to use [include guards](https://en.wikipedia.org/wiki/Include_guard) on all headers.
+
+<br>
 
 ## List editor
 
