@@ -51,6 +51,12 @@ To return to the main menu, simply enter a blank input.
 
 <br>
 
+## Yahtzee
+
+A solitaire, command line version of the [famous dice game](https://en.wikipedia.org/wiki/Yahtzee).
+
+<br>
+
 ## Sorting functions
 
 ```
@@ -597,8 +603,3 @@ int stringPosition(string arg, vector<string> vec)
 ```
 
 Returns the position of a string (arg) in a vector of strings (vec), or 0 if it was not found.
-
-
-## Yahtzee
-
-A solitaire, command line version of the [famous dice game](https://en.wikipedia.org/wiki/Yahtzee).
