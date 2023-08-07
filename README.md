@@ -1,6 +1,6 @@
-# MacOS C++
+# Unix TUI Template
 
-This code will NOT work properly on Windows or Linux. 
+A text user interface template for MacOS and Linux.
 
 ## To build
 
