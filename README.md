@@ -1,6 +1,6 @@
 # Ncurses Template
 
-An ncurses project template for MacOS and Linux.
+A C++ project template for MacOS and Linux.
 
 <br>
 
