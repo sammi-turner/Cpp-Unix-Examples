@@ -4,6 +4,12 @@ A C++ project template for MacOS and Linux.
 
 <br>
 
+## Prerequisite
+
+[Ncurses](https://en.wikipedia.org/wiki/Ncurses) needs to be installed, so the code in this repo will NOT work on Windows.
+
+<br>
+
 ## To build
 
 From the root directory, enter
