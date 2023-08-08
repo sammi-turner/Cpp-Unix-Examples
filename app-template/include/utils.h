@@ -3,6 +3,7 @@
 
 /* System headers */
 
+#include <sqlite3.h>
 #include <ncurses.h>
 #include <csignal>
 #include <cstring>
@@ -38,6 +39,9 @@ using std::make_pair;
 
 namespace utils
 {
+    void writeToDB(string name, string data);
+    string readFromDB(string name);
+
     int compareInts(const void* a, const void* b);
     void sortIntArray(int* arr, int size);
     
