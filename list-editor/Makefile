@@ -5,7 +5,7 @@ BIN		:= bin
 SRC		:= src
 INCLUDE	:= include
 
-LIBRARIES	:= -lncurses
+LIBRARIES	:= -lncurses -lsqlite3
 EXECUTABLE	:= main
 
 all: $(BIN)/$(EXECUTABLE)
