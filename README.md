@@ -4,9 +4,11 @@ A C++ project template for MacOS and Linux.
 
 <br>
 
-## Prerequisite
+## Dependencies
 
-[Ncurses](https://en.wikipedia.org/wiki/Ncurses) needs to be installed, so the code in this repo will NOT work on Windows.
+1. [Ncurses](https://en.wikipedia.org/wiki/Ncurses). This library is not available on Windows.
+
+2. [Sqlite3](https://en.wikipedia.org/wiki/SQLite).
 
 <br>
 
@@ -60,6 +62,24 @@ To return to the main menu, simply enter a blank input.
 ## Yahtzee
 
 A solitaire, command line version of the [famous dice game](https://en.wikipedia.org/wiki/Yahtzee).
+
+<br>
+
+## Local database
+
+```
+void writeToDB(string name, string data)
+```
+
+This function writes/overwrites a named sqlite3 database with a data string.
+
+<br>
+
+```
+string readFromDB(string name)
+```
+
+This function reads from a named sqlite3 database into a string.
 
 <br>
 
