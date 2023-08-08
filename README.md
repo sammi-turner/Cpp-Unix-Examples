@@ -6,7 +6,9 @@ A C++ project template for MacOS and Linux.
 
 ## Dependencies
 
-1. [Ncurses](https://en.wikipedia.org/wiki/Ncurses). This library is not available on Windows.
+1. [Ncurses](https://en.wikipedia.org/wiki/Ncurses).
+
+This library is not available on Windows.
 
 2. [Sqlite3](https://en.wikipedia.org/wiki/SQLite).
 
