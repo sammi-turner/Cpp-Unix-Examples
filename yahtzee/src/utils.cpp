@@ -1,5 +1,72 @@
 #include "utils.h"
 
+void utils::writeToDB(string name, string data) 
+{
+    sqlite3* db;
+    char *zErrMsg = 0;
+    const char* nameCstr = name.c_str();
+
+    int rc = sqlite3_open(nameCstr, &db);
+    if (rc) 
+    {
+        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+    }
+
+    string sql = "CREATE TABLE IF NOT EXISTS " + name + " (id INTEGER PRIMARY KEY, name TEXT, data TEXT)";
+    rc = sqlite3_exec(db, sql.c_str(), NULL, 0, &zErrMsg);
+
+    if (rc != SQLITE_OK) 
+    {
+        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
+    }
+
+    sql = "INSERT INTO " + name + " (name, data) VALUES ('" + name + "', '" + data + "')";
+    rc = sqlite3_exec(db, sql.c_str(), NULL, 0, &zErrMsg);
+
+    if (rc != SQLITE_OK) 
+    {
+        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
+    }
+
+    sqlite3_close(db);
+}
+
+string utils::readFromDB(string name) 
+{
+    sqlite3* db;
+    char* zErrMsg = 0;
+    const char* nameCstr = name.c_str();
+    
+    int rc = sqlite3_open(nameCstr, &db);
+    if (rc) 
+    {
+        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+        return "";
+    }
+    
+    string sql = "SELECT * FROM " + name;
+    sqlite3_stmt* stmt;
+    rc = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, NULL);
+    
+    if (rc != SQLITE_OK) 
+    {
+        fprintf(stderr, "Failed to prepare statement: %s\n", sqlite3_errmsg(db));
+        return "";
+    }
+    
+    string data;
+    while (sqlite3_step(stmt) == SQLITE_ROW) 
+    {
+        data = (const char*) sqlite3_column_text(stmt, 2);
+    }
+    
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+    return data;
+}
+
 int utils::compareInts(const void* a, const void* b)
 {
     return (*(int*)a - *(int*)b);
