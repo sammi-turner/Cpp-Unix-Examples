@@ -200,17 +200,16 @@ void ListEdit::loadList()
 {
     printList();
     vPuts("\n    Name of file to load?\n    > ");
-    string newItem = vInput(80);
+    string newItem = vInput(30);
     if (newItem != "" && fileExists(newItem))
     {
-        list = fileRead(newItem);
+        list = readFromDB(newItem);
         listIndex = lineCount(list) + 1;
         readList();
     }
     else
     {
-        vPuts("\n    That file is not in the current directory.");
-        vPuts("\n\n    PRESS ANY KEY TO CONTINUE");
+        vPuts("\n    That file is not in the current directory.\n\n    PRESS ANY KEY TO CONTINUE");
         getch();
     }
 }
@@ -221,7 +220,7 @@ void ListEdit::saveList()
     vPuts("\n    Name of file to save?\n    > ");
     string newItem = vInput(80);
     if (newItem != "")
-        fileWrite(newItem, list);
+        writeToDB(newItem, list);
     readList();
 }
 
