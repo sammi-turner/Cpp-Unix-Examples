@@ -203,7 +203,7 @@ void ListEdit::loadList()
     string newItem = vInput(30);
     if (newItem != "" && fileExists(newItem))
     {
-        list = readFromDB(newItem);
+        list = fileRead(newItem);
         listIndex = lineCount(list) + 1;
         readList();
     }
@@ -220,7 +220,7 @@ void ListEdit::saveList()
     vPuts("\n    Name of file to save?\n    > ");
     string newItem = vInput(80);
     if (newItem != "")
-        writeToDB(newItem, list);
+        fileWrite(newItem, list);
     readList();
 }
 
