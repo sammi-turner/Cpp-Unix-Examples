@@ -52,6 +52,16 @@ A solitaire, command line version of the [famous dice game](https://en.wikipedia
 
 <br>
 
+### Shell commands
+
+```
+string shell(string arg)
+```
+
+Executes the shell command specified by a string (arg) and returns either a blank string, or the output of the command.
+
+<br>
+
 ### Sorting functions
 
 ```
@@ -65,16 +75,6 @@ void sortIntArray(int* arr, int size)
 ```
 
 Sorts an array of integers (arr) of a given size (size).
-
-<br>
-
-### Shell commands
-
-```
-void shell(string arg)
-```
-
-Executes the shell command specified by a string (arg).
 
 <br>
 
