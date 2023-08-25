@@ -48,7 +48,11 @@ A solitaire, command line version of the [famous dice game](https://en.wikipedia
 
 <br>
 
-## Sorting functions
+## Utils
+
+<br>
+
+### Sorting functions
 
 ```
 int compareInts(const void* a, const void* b)
@@ -64,7 +68,7 @@ Sorts an array of integers (arr) of a given size (size).
 
 <br>
 
-## Shell commands
+### Shell commands
 
 ```
 void shell(string arg)
@@ -74,7 +78,7 @@ Executes the shell command specified by a string (arg).
 
 <br>
 
-## Pseudo random numbers
+### Pseudo random numbers
 
 ```
 void seed()
@@ -90,7 +94,7 @@ Returns either 0, or a pseudo random number from 1 to an integer value (arg).
 
 <br>
 
-## Virtual terminal session
+### Virtual terminal session
 
 ```
 void openVirtualTerminal()
@@ -106,7 +110,7 @@ Displays a string (arg) within the virtual terminal session, then closes the ses
 
 <br>
 
-## Virtual cursor
+### Virtual cursor
 
 ```
 void virtualCursorOff()
@@ -122,7 +126,7 @@ Turns the cursor on within a virtual terminal session.
 
 <br>
 
-## Virtual keypress
+### Virtual keypress
 
 ```
 void virtualKeypressOff()
@@ -138,7 +142,7 @@ Sets keypresses to display, within a virtual terminal session.
 
 <br>
 
-## Virtual rows and columns
+### Virtual rows and columns
 
 ```
 int virtualRows()
@@ -154,7 +158,7 @@ Returns the number of columns in a virtual terminal session.
 
 <br>
 
-## Virtual strings
+### Virtual strings
 
 ```
 string vInput(int arg)
@@ -170,7 +174,7 @@ Prints a string (arg), within a virtual terminal session.
 
 <br>
 
-## Virtual menus
+### Virtual menus
 
 ```
 void renderMenu(string menu[], int size, int count)
@@ -186,7 +190,7 @@ Within a virtual terminal session, this function returns an integer based on the
 
 <br>
 
-## Virtual prompt
+### Virtual prompt
 
 ```
 void renderPrompt(string prompt, string buffer, int pos)
@@ -204,7 +208,7 @@ When the buffer reaches a maximum size (max) or the return key is pressed, the n
 
 <br>
 
-## Identifying chars
+### Identifying chars
 
 ```
 bool isCharDigit(char arg)
@@ -262,7 +266,7 @@ Returns true if a char (arg) is a graphical character, or false, if it is not.
 
 <br>
 
-## Identifying strings
+### Identifying strings
 
 ```
 bool isLowerCase(string arg)
@@ -308,7 +312,7 @@ Returns true if a string (arg) denotes a floating point number, or false, if it 
 
 <br>
 
-## Conversion to string
+### Conversion to string
 
 ```
 int toInt(string arg)
@@ -324,7 +328,7 @@ Returns either a float, or the integer obtained by converting a string (arg).
 
 <br>
 
-## File IO
+### File IO
 
 ```
 bool fileExists(string name)
@@ -358,7 +362,7 @@ Deletes a file in the working directory named by a string (arg).
 
 <br>
 
-## String manipulation
+### String manipulation
 
 ```
 int charCount(string arg, char ch)
@@ -386,7 +390,7 @@ Returns the string obtained by replacing every occurence of one string (x), with
 
 <br>
 
-## String comparison
+### String comparison
 
 ```
 bool isMember(string arg, string* arr, int arrSize)
@@ -402,7 +406,7 @@ Returns either false, or true if a string (arg1), is contained in another string
 
 <br>
 
-## Nth slices
+### Nth slices
 
 ```
 string nthSlice(string arg, char delim, int num)
@@ -424,7 +428,7 @@ Returns the nth slice (num) in a string (arg) where the newline character is the
 
 <br>
 
-## First slices
+### First slices
 
 ```
 string firstSlice(string arg, char delim)
@@ -446,7 +450,7 @@ Returns the first slice in a string (arg) where the newline character is the del
 
 <br>
 
-## Other slices
+### Other slices
 
 ```
 string otherSlices(string arg, char delim)
@@ -468,7 +472,7 @@ Returns all slices after the first in a string (arg) where the newline character
 
 <br>
 
-## Slice counts
+### Slice counts
 
 ```
 int sliceCount(string arg, char delim)
@@ -490,7 +494,7 @@ Returns the number of slices in a string (arg) where the newline character is th
 
 <br>
 
-## Removing slices
+### Removing slices
 
 ```
 string removeNthSlice(string arg, char delim, int num)
@@ -530,7 +534,7 @@ Returns the result of removing the last slice from a string (arg), where the new
 
 <br>
 
-## Inserting slices
+### Inserting slices
 
 ```
 string insertSliceAt(string arg, string ins, char delim, int num)
@@ -553,7 +557,7 @@ Returns the result of inserting a string (ins) into another string (arg), as the
 
 <br>
 
-## Replacing slices
+### Replacing slices
 
 ```
 string replaceSliceAt(string arg, string ins, char delim, int num)
@@ -575,7 +579,7 @@ Returns the result of inserting a string (ins) into another string (arg), as the
 
 <br>
 
-## Vectors
+### Vectors
 
 ```
 bool readFileIntoVector(string fileName, vector<string> & vec)
