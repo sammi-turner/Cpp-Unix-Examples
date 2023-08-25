@@ -24,7 +24,9 @@ g++ *.cpp -std=c++14 -lncurses
 ./a.out
 ```
 
-## To build and run the binary.
+<br>
+
+## To build and run
 
 ```
 g++ *.cpp -std=c++14 -lncurses && ./a.out
