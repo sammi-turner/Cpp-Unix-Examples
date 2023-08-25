@@ -4,50 +4,31 @@ A C++ project template for MacOS and Linux.
 
 <br>
 
-## Dependencies
+## Dependency
 
-1. [Ncurses](https://en.wikipedia.org/wiki/Ncurses) (this library is not available natively on Windows).
-
-2. [Sqlite3](https://en.wikipedia.org/wiki/SQLite).
+[Ncurses](https://en.wikipedia.org/wiki/Ncurses) (this library is not available natively on Windows).
 
 <br>
 
 ## To build
 
-From the root directory, enter
-
 ```
-make
+g++ *.cpp -std=c++14 -lncurses
 ```
 
 <br>
 
-## Useful shell aliases
-
-To run the binary.
+## To run the binary
 
 ```
-alias run='./bin/main'
+./a.out
 ```
 
-To build and run the binary.
+## To build and run the binary.
 
 ```
-alias mar='make && ./bin/main'
+g++ *.cpp -std=c++14 -lncurses && ./a.out
 ```
-<br>
-
-## Source files
-
-.cpp files go in the src directory.
-
-<br>
-
-## Header files
-
-.h files go in the include directory.
-
-Don't forget to use [include guards](https://en.wikipedia.org/wiki/Include_guard) on all headers.
 
 <br>
 
@@ -62,24 +43,6 @@ To return to the main menu, simply enter a blank input.
 ## Yahtzee
 
 A solitaire, command line version of the [famous dice game](https://en.wikipedia.org/wiki/Yahtzee).
-
-<br>
-
-## Local database
-
-```
-void writeToDB(string name, string data)
-```
-
-This function writes/overwrites a named sqlite3 database with a data string.
-
-<br>
-
-```
-string readFromDB(string name)
-```
-
-This function reads from a named sqlite3 database into a string.
 
 <br>
 
