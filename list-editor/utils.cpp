@@ -1,5 +1,29 @@
 #include "utils.h"
 
+string utils::shell(string arg) 
+{
+    const char* cstr = arg.c_str();
+    string tempFile = "temp.txt";
+
+    string command = string(cstr) + " > " + tempFile;
+    system(command.c_str());
+
+    string output;
+    ifstream file(tempFile, std::ios::in);
+    if (file.is_open()) 
+    {
+        string line;
+        while (std::getline(file, line)) 
+        {
+            output += line + "\n";
+        }
+        file.close();
+    }
+
+    remove(tempFile.c_str());
+    return output;
+}
+
 int utils::compareInts(const void* a, const void* b)
 {
     return (*(int*)a - *(int*)b);
@@ -8,15 +32,6 @@ int utils::compareInts(const void* a, const void* b)
 void utils::sortIntArray(int* arr, int size)
 {
     qsort(arr, size, sizeof(int), compareInts);
-}
-
-void utils::shell(string arg)
-{
-    int num = arg.length() + 1;
-    char* arr = new char[num];
-    strcpy(arr, arg.c_str());
-    system(arr);
-    delete[] arr;
 }
 
 void utils::seed() 
@@ -389,18 +404,9 @@ string utils::fileRead(string name)
     return value;
 }
 
-
 void utils::fileDelete(string arg)
 {
-    int len = arg.length() + 1;
-    char* arr = new char[len];
-    char* fileName = new char[len];
-    for (int i = 0; i < len; i++)
-        fileName[i] = arg[i];
-
-    remove(fileName);
-    delete[] arr;
-    delete[] fileName;
+    remove(arg.c_str());
 }
 
 int utils::charCount(string arg, char ch)
