@@ -1,6 +1,6 @@
-# Unix C++ Template
+# Unix C++ Examples
 
-A C++ project template for MacOS and Linux.
+Small example programs for MacOS and Linux.
 
 <br>
 
