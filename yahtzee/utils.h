@@ -35,13 +35,15 @@ using std::cerr;
 using std::vector;
 using std::unordered_map;
 using std::make_pair;
+using std::remove;
 
 namespace utils
 {
+    string shell(string arg);
+
     int compareInts(const void* a, const void* b);
     void sortIntArray(int* arr, int size);
-    
-    void shell(string arg);
+
     void seed();
     int pseudo(int arg);
 
