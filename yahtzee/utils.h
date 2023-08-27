@@ -4,17 +4,7 @@
 /* System headers */
 
 #include <ncurses.h>
-#include <csignal>
-#include <cstring>
-#include <cctype>
-#include <cstdlib>
-#include <cstdio>
-#include <ctime>
-#include <cmath>
-#include <climits>
-#include <iostream>
 #include <fstream>
-#include <sstream>
 #include <string>
 
 /* Standard namespace */
