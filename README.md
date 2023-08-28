@@ -15,3 +15,15 @@ To return to the main menu, simply enter a blank input.
 ## Yahtzee
 
 A solitaire, command line version of the [famous dice game](https://en.wikipedia.org/wiki/Yahtzee).
+
+<br>
+
+## Expression evaluator
+
+An arithmetic expression evaluator.
+
+<br>
+
+## Rationals demo
+
+A mechanism for rational number arithmetic, without using floats.
