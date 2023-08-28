@@ -15,9 +15,3 @@ To return to the main menu, simply enter a blank input.
 ## Yahtzee
 
 A solitaire, command line version of the [famous dice game](https://en.wikipedia.org/wiki/Yahtzee).
-
-<br>
-
-## Utils
-
-A collection of utility functions to reduce boilerplate.
