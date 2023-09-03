@@ -4,6 +4,12 @@ Small example programs for MacOS and Linux.
 
 <br>
 
+## Key Value Pair Thing 
+
+This utility is a shortcut for storing key-value pairs as sqlite tables, for updating them and for querying their values.
+
+<br>
+
 ## List editor
 
 This app implements basic [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) on lists, in addition to 'swap', 'copy', 'cut', 'paste', 'insert', 'load', 'save', and 'exit'.
