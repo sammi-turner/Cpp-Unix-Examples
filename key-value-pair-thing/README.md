@@ -1,6 +1,6 @@
-# Key Value Pair Thing
+# Key Value Pair Thing 
 
-Key Value Pair Thing (KVPT) is a shortcut for storing tables of key-value pairs, for updating them and for querying their values.
+This utility is a shortcut for storing key-value pairs as sqlite tables, for updating them and for querying their values.
 
 <br>
 
