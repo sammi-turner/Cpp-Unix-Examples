@@ -24,17 +24,23 @@ sqlite3 --version
 
 Don't forget to [sanitise](https://happycoding.io/tutorials/java-server/sanitizing-user-input) those input strings!
 
+<br>
+
 ## To build
 
 ```
 g++ *.cpp -std=c++14
 ```
 
+<br>
+
 ## To run the binary
 
 ```
 ./a.out
 ```
+
+<br>
 
 ## To build and run the binary
 
