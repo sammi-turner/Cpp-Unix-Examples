@@ -5,7 +5,7 @@
 ## To build
 
 ```
-g++ *.cpp -std=c++20 -lncurses
+g++ *.cpp -std=c++14 -lncurses
 ```
 
 ## To run the binary
@@ -17,5 +17,5 @@ g++ *.cpp -std=c++20 -lncurses
 ## To build and run the binary
 
 ```
-g++ *.cpp -std=c++20 -lncurses && ./a.out
+g++ *.cpp -std=c++14 -lncurses && ./a.out
 ```
