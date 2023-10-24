@@ -4,6 +4,7 @@
 namespace parser
 {
     bool isLowerCaseWord(string s);
+    bool isTerm(string s);
 }
 
 #endif

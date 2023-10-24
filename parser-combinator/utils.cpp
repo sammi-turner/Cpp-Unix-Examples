@@ -184,20 +184,35 @@ bool utils::isCharDigit(char arg)
 
 bool utils::isPosInt(string arg)
 {
-    bool result = true;
     int size = arg.length();
-    if (!isCharDigit(arg[0]) || arg[0] == '0')
+    if (size == 0 || arg[0] == '0')
     {
-        result = false;
+        return false;
     }
-    for (int i = 1; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
         if (!isCharDigit(arg[i]))
         {
-            result = false;
+            return false;
         }
     }
-    return result;
+    return true;
+}
+
+bool utils::isNegInt(string arg)
+{
+    int size = arg.length();
+    if (size < 2 || arg[0] != '-')
+    {
+        return false;
+    }
+    string s = arg.erase(0, 1);
+    return isPosInt(s);
+}
+
+bool utils::isInt(string arg)
+{
+    return isPosInt(arg) || arg == "0" || isNegInt(arg);
 }
 
 int utils::toInt(string arg)

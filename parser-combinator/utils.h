@@ -43,6 +43,8 @@ namespace utils
     
     bool isCharDigit(char arg);
     bool isPosInt(string arg);
+    bool isNegInt(string arg);
+    bool isInt(string arg);
     int toInt(string arg);
 
     bool fileExists(string name);
