@@ -5,10 +5,10 @@ using namespace parser;
 
 int main()
 {
-    string s0 = padParens("2(r7) - 5(8)");
-    vector<string> sentence = splitBySpace(s0);
-    for (string word : sentence) 
+    string str = padParens("Mary**had**a**little**lamb");
+    vector<string> vec = splitByDelimiter(str, '*');
+    for (string word : vec)
     {
-        cout << word << '\n';
+        cout << checkToken(word) << '\n';
     }
 }

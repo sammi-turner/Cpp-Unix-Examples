@@ -55,23 +55,7 @@ namespace utils
     bool fileExists(string name);
     int fileWrite(string name, string text);
     void fileAppend(string name, string text);
-
     string fileRead(string name);
-    string firstSlice(string arg, char delim);
-    string otherSlices(string arg, char delim);
-
-    int sliceCount(string arg, char delim);
-    int lineCount(string arg);
-
-    string trimWhiteSpace(string arg);
-    string nthSlice(string arg, char delim, int num);
-    string nthLine(string arg, int num);
-
-    string removeNthSlice(string arg, char delim, int num);
-    string removeNthLine(string arg, int num);
-
-    string insertSliceAt(string arg, string ins, char delim, int num);
-    string insertLineAt(string arg, string ins, int num);
 }
 
 #endif
