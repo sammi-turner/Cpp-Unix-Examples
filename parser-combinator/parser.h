@@ -1,10 +1,14 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+using namespace utils;
+
 namespace parser
 {
-    bool isLowerCaseWord(string s);
-    bool isTerm(string s);
+    bool isInfixOperator(string s);
+    bool isBuiltin(string s);
+    vector<string> splitBySpace(string s);
+    string padParens(string s);
 }
 
 #endif

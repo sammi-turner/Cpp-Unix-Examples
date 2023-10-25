@@ -8,14 +8,17 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 /* Standard namespace */
 
+using std::istringstream;
 using std::ostringstream;
 using std::to_string;
 using std::ios_base;
 using std::ofstream;
 using std::ifstream;
+using std::vector;
 using std::string;
 using std::cout;
 
@@ -41,7 +44,9 @@ namespace utils
     string editPrompt(string prompt, string buffer, int max);
     int selectOption(string menu[], int size);
     
+    bool isCharLowerCase(char arg);
     bool isCharDigit(char arg);
+
     bool isPosInt(string arg);
     bool isNegInt(string arg);
     bool isInt(string arg);

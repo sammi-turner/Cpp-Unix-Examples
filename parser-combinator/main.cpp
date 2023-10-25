@@ -5,8 +5,10 @@ using namespace parser;
 
 int main()
 {
-    string word0 = "abcde";
-    string word1 = "01234";
-    string word2 = "-13";
-    cout << isTerm(word0) << " " << isTerm(word1) << " " << isTerm(word2) << "\n";
+    string s0 = padParens("2(r7) - 5(8)");
+    vector<string> sentence = splitBySpace(s0);
+    for (string word : sentence) 
+    {
+        cout << word << '\n';
+    }
 }

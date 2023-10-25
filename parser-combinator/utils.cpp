@@ -177,6 +177,11 @@ string utils::editPrompt(string prompt, string buffer, int max)
     return result;
 }
 
+bool utils::isCharLowerCase(char arg)
+{
+    return (arg >= 'a' || arg <= 'z');
+}
+
 bool utils::isCharDigit(char arg)
 {
     return (isdigit(arg) > 0);
