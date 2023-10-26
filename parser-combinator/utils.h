@@ -26,6 +26,7 @@ namespace utils
 {
     void seed();
     int pseudo(int arg);
+    void shell(string s);
     
     void openVirtualTerminal();
     void closeVirtualTerminal(string arg);
@@ -56,6 +57,11 @@ namespace utils
     int fileWrite(string name, string text);
     void fileAppend(string name, string text);
     string fileRead(string name);
+
+    vector<string> splitByDelimiter(string s, char d);
+    vector<string> removeEmptyStrings(vector<string> v);
+    vector<string> splitBySpace(string s);
+    vector<string> splitByNewLine(string s);
 }
 
 #endif

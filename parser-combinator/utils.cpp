@@ -15,6 +15,11 @@ int utils::pseudo(int arg)
     return result;
 }
 
+void utils::shell(string s)
+{
+    system(s.c_str());
+}
+
 void utils::virtualCursorOff() 
 {
     curs_set(0);
@@ -270,4 +275,53 @@ string utils::fileRead(string name)
         value = ss.str();
     }
     return value;
+}
+
+vector<string> utils::removeEmptyStrings(vector<string> v)
+{
+    vector<string> r;
+    for (string s : v)
+    {
+        if (s != "")
+        {
+            r.push_back(s);
+        }
+    }
+    return r;
+}
+
+vector<string> utils::splitByDelimiter(string s, char d)
+{
+    vector<string> v;
+    istringstream iss(s);
+    string line;
+    while (getline(iss, line, d))
+    {
+        v.push_back(line);
+    }
+    return removeEmptyStrings(v);
+}
+
+vector<string> utils::splitBySpace(string s) 
+{
+    vector<string> v;
+    istringstream iss(s);
+    string line;
+    while (getline(iss, line, ' ')) 
+    {
+        v.push_back(line);
+    }
+    return removeEmptyStrings(v);
+}
+
+vector<string> utils::splitByNewLine(string s) 
+{
+    vector<string> v;
+    istringstream iss(s);
+    string line;
+    while (getline(iss, line, '\n')) 
+    {
+        v.push_back(line);
+    }
+    return removeEmptyStrings(v);
 }
