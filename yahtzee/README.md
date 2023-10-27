@@ -1,21 +1,20 @@
-## Dependency
-
-[Ncurses](https://en.wikipedia.org/wiki/Ncurses) (this library is not available natively on Windows).
+<br>
 
 ## To build
 
 ```
-g++ *.cpp -std=c++14 -lncurses
+make
 ```
 
 ## To run the binary
 
 ```
-./a.out
+./bin/main
 ```
 
 ## To build and run the binary
 
 ```
-g++ *.cpp -std=c++14 -lncurses && ./a.out
+make && ./bin/main
 ```
+<br>
