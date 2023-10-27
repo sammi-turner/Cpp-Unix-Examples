@@ -1,5 +1,3 @@
-<br>
-
 ## Dependency
 
 [Ncurses](https://en.wikipedia.org/wiki/Ncurses) (this library is not available natively on Windows).
@@ -21,4 +19,3 @@ g++ *.cpp -std=c++14 -lncurses
 ```
 g++ *.cpp -std=c++14 -lncurses && ./a.out
 ```
-<br>

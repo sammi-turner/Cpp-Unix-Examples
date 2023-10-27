@@ -64,10 +64,7 @@ string utils::vInput(int arg)
 
 void utils::vPuts(string arg) 
 {
-    int num = arg.length();
-    char arr[num + 1];
-    strcpy(arr, arg.c_str());
-    printw(arr);
+    printw(arg.c_str());
     refresh();
 }
 
