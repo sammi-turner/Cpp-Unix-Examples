@@ -31,23 +31,19 @@ Don't forget to [sanitise](https://happycoding.io/tutorials/java-server/sanitizi
 ## To build
 
 ```
-g++ *.cpp -std=c++14
+make
 ```
-
-<br>
 
 ## To run the binary
 
 ```
-./a.out
+./bin/main
 ```
-
-<br>
 
 ## To build and run the binary
 
 ```
-g++ *.cpp -std=c++14 && ./a.out
+make && ./bin/main
 ```
 
 <br>
