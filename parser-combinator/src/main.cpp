@@ -5,10 +5,6 @@ using namespace lexer;
 
 int main()
 {
-    string str = padDelims("div mod pow mul min max");
-    vector<string> vec = splitBySpace(str);
-    for (string word : vec)
-    {
-        cout << checkToken(word) << '\n';
-    }
+    string str = runLexer("div(mul(3, 2), sub(4, 1))");
+    cout << str << "\n";
 }

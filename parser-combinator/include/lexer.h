@@ -9,6 +9,7 @@ namespace lexer
     bool isBuiltin(string s);
     string padDelims(string s);
     string checkToken(string s);
+    string runLexer(string s);
 }
 
 #endif

@@ -55,10 +55,29 @@ string lexer::checkToken(string s)
 {
     if (isBuiltin(s) || isDelim(s) || isInt(s))
     {
-        return "Valid";
+        return "valid token: " + s;
     }
     else
     {
-        return "Invalid token: " + s;
+        return "invalid token: " + s;
     }
+}
+
+string lexer::runLexer(string s)
+{
+    string str = padDelims(s);
+    vector<string> vec = splitBySpace(str);
+    int vs = vec.size();
+    string ct;
+    int n = 0;
+    while (n < vs)
+    {
+        ct = checkToken(vec[n]);
+        if (ct[0] == 'i')
+        {
+            return ct;
+        } 
+        n++;
+    }
+    return "all tokens valid";
 }
