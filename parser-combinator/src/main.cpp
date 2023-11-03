@@ -5,6 +5,7 @@ using namespace lexer;
 
 int main()
 {
-    string str = runLexer("div(mul(3, 2), sub(4, 1))");
-    cout << str << "\n";
+    string s0 = padParens("(/ (* 3 -2) (- 4 1))");
+    string s1 = runLexer(s0);
+    cout << s0 << "\n" << s1 << "\n"; 
 }

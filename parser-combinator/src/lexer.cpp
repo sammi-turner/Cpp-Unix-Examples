@@ -1,47 +1,34 @@
 #include "utils.h"
 #include "lexer.h"
 
-bool lexer::isDelim(string s)
+bool lexer::isParen(string s)
+{
+    return (s == "(" || s == ")");
+}
+
+bool lexer::isOperator(string s)
 {
     return
     (
-        s == "(" ||
-        s == ")" ||
-        s == ","
+        s == "+" ||
+        s == "-" ||
+        s == "*" ||
+        s == "/"
     );
 }
 
-bool lexer::isBuiltin(string s)
-{
-    return
-    (
-        s == "add" ||
-        s == "sub" ||
-        s == "mul" ||
-        s == "pow" ||
-        s == "div" ||
-        s == "mod" ||
-        s == "min" ||
-        s == "max"
-    );
-}
-
-string lexer::padDelims(string s)
+string lexer::padParens(string s)
 {
     string r = "";
     for (char c : s)
     {
         if (c == '(')
         {
-            r += " ( ";
+            r += "( ";
         }
         else if (c == ')')
         {
-            r += " ) ";
-        }
-        else if (c == ',')
-        {
-            r += " , ";
+            r += " )";
         }
         else
         {
@@ -51,31 +38,39 @@ string lexer::padDelims(string s)
     return r;
 }
 
-string lexer::checkToken(string s)
+array<string, 2> lexer::checkToken(string s)
 {
-    if (isBuiltin(s) || isDelim(s) || isInt(s))
+    if (isOperator(s))
     {
-        return "valid token: " + s;
+        return {"operator", s};
+    }
+    else if (isParen(s))
+    {
+        return {"paren", s};
+    }
+    else if (isInt(s))
+    {
+        return {"integer", s};
     }
     else
     {
-        return "invalid token: " + s;
+        return {"invalid", s};
     }
 }
 
 string lexer::runLexer(string s)
 {
-    string str = padDelims(s);
+    string str = padParens(s);
     vector<string> vec = splitBySpace(str);
     int vs = vec.size();
-    string ct;
+    array<string, 2> a;
     int n = 0;
     while (n < vs)
     {
-        ct = checkToken(vec[n]);
-        if (ct[0] == 'i')
+        a = checkToken(vec[n]);
+        if (a[0] == "invalid")
         {
-            return ct;
+            return "invalid token: " + a[1];
         } 
         n++;
     }

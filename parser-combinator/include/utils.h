@@ -7,8 +7,9 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
 #include <vector>
+#include <string>
+#include <array>
 
 /* Standard namespace */
 
@@ -20,6 +21,7 @@ using std::ofstream;
 using std::ifstream;
 using std::vector;
 using std::string;
+using std::array;
 using std::cout;
 
 namespace utils

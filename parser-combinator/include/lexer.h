@@ -5,11 +5,11 @@ using namespace utils;
 
 namespace lexer
 {
-    bool isDelim(string s);
-    bool isBuiltin(string s);
-    string padDelims(string s);
-    string checkToken(string s);
+    bool isParen(string s);
+    bool isOperator(string s);
+    string padParens(string s);
     string runLexer(string s);
+    array<string, 2> checkToken(string s);
 }
 
 #endif
