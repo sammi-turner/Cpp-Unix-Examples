@@ -50,20 +50,10 @@ namespace utils
     bool isCharLowerCase(char arg);
     bool isCharDigit(char arg);
 
-    bool isPosInt(string arg);
-    bool isNegInt(string arg);
-    bool isInt(string arg);
-    int toInt(string arg);
-
     bool fileExists(string name);
     int fileWrite(string name, string text);
     void fileAppend(string name, string text);
     string fileRead(string name);
-
-    vector<string> splitByDelimiter(string s, char d);
-    vector<string> removeEmptyStrings(vector<string> v);
-    vector<string> splitBySpace(string s);
-    vector<string> splitByNewLine(string s);
 }
 
 #endif
