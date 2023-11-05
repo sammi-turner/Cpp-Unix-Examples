@@ -20,8 +20,9 @@ namespace parser
     vector<string> splitBySpace(string s);
     vector<string> tokenStream(string s);
 
-    vector<string> tokenTypeStream(vector<string> v);
-    array<string, 2> checkToken(string s);
+    bool hasOuterParens(vector<string> v);
+    bool isAtomicList(vector<string> v);
+    vector<string> removeOuterTokens(vector<string> v);
 }
 
 #endif

@@ -131,27 +131,33 @@ vector<string> parser::tokenStream(string s)
     return splitBySpace(p);
 }
 
-vector<string> parser::tokenTypeStream(vector<string> v)
+bool parser::hasOuterParens(vector<string> v)
 {
-    vector<string> types;
-    for (string s : v)
+    int n = v.size() - 1;
+    return (v[0] == "(" && v[n] == ")");
+}
+
+bool parser::isAtomicList(vector<string> v)
+{
+    if (!isOperator(v[0]))
     {
-        if (isInt(s))
+        return false;
+    }
+    int max = v.size();
+    for (int i = 1; i < max; i++)
+    {
+        if (!isInt(v[i]))
         {
-            types.push_back("integer");
-        }
-        else if (isParen(s))
-        {
-            types.push_back("paren");
-        }
-        else if (isOperator(s))
-        {
-            types.push_back("operator");
-        }
-        else
-        {
-            types.push_back("invalid");
+            return false;
         }
     }
-    return types;
+    return true;
+}
+
+vector<string> parser::removeOuterTokens(vector<string> v)
+{
+    vector<string> r = v;
+    r.erase(r.begin());
+    r.pop_back();
+    return r;
 }
