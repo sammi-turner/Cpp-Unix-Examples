@@ -6,7 +6,7 @@ using namespace parser;
 int main()
 {
     cout << "\n";
-    vector<string> t0 = tokenStream("(* 3 -2)");
-    vector<string> t1 = removeOuterTokens(t0);
-    cout << isAtomicList(t1) << "\n\n";
+    vector<string> t0 = tokenStream("(^ (+ 2 (* 5 3)))");
+    string j = joinStrings(t0, " ");
+    cout << j << "\n\n";
 }

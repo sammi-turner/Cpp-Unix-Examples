@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <array>
+#include <cmath>
 
 /* Standard namespace */
 
@@ -23,37 +24,34 @@ using std::vector;
 using std::string;
 using std::array;
 using std::cout;
+using std::pow;
 
 namespace utils
 {
     void seed();
-    int pseudo(int arg);
-    void shell(string s);
-    
-    void openVirtualTerminal();
-    void closeVirtualTerminal(string arg);
-
     void virtualCursorOn();
     void virtualCursorOff();
-    
     void virtualKeypressOff();
     void virtualKeypressOn();
-    
+    void openVirtualTerminal();
+    void shell(string arg);
     void vPuts(string arg);
+    void closeVirtualTerminal(string arg);
     void renderMenu(string menu[], int size, int count);
     void renderPrompt(string prompt, string buffer, int pos);
+    void fileAppend(string name, string text);
     
-    string vInput(int arg);
-    string editPrompt(string prompt, string buffer, int max);
+    int pseudo(int arg);
     int selectOption(string menu[], int size);
+    int fileWrite(string name, string text);
     
     bool isCharLowerCase(char arg);
     bool isCharDigit(char arg);
-
     bool fileExists(string name);
-    int fileWrite(string name, string text);
-    void fileAppend(string name, string text);
+
+    string vInput(int arg);
     string fileRead(string name);
+    string editPrompt(string prompt, string buffer, int max);
 }
 
 #endif

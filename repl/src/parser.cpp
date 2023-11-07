@@ -39,34 +39,31 @@ int parser::toInt(string arg)
     return std::stoi(arg);
 }
 
-bool parser::isParen(string s)
+bool parser::isRightParen(string arg)
 {
-    return (s == "(" || s == ")");
+    return (arg == ")");
 }
 
-bool parser::isOperator(string s)
+bool parser::isOperator(string arg)
 {
     return
     (
-        s == "+" ||
-        s == "-" ||
-        s == "*" ||
-        s == "/"
+        arg == "(^" ||
+        arg == "(*" ||
+        arg == "(/" ||
+        arg == "(+" ||
+        arg == "(-"
     );
 }
 
-string parser::padParens(string s)
+string parser::padRightParens(string arg)
 {
     string r = "";
-    for (char c : s)
+    for (char c : arg)
     {
-        if (c == '(')
+        if (c == ')')
         {
-            r += "( ";
-        }
-        else if (c == ')')
-        {
-            r += " )";
+            r += " ) ";
         }
         else
         {
@@ -74,6 +71,26 @@ string parser::padParens(string s)
         }
     }
     return r;
+}
+
+string parser::joinStrings(vector<string> v, string d)
+{
+    int max = v.size();
+    if (max == 0)
+    {
+        return "";
+    }
+    if (max == 1)
+    {
+        return v[0];
+    }
+    string result = v[0];
+    for (int i = 1; i < max; i++)
+    {
+        result += d;
+        result += v[i]; 
+    }
+    return result;
 }
 
 vector<string> parser::removeEmptyStrings(vector<string> v)
@@ -89,10 +106,10 @@ vector<string> parser::removeEmptyStrings(vector<string> v)
     return r;
 }
 
-vector<string> parser::splitBySpace(string s) 
+vector<string> parser::splitBySpace(string arg) 
 {
     vector<string> v;
-    istringstream iss(s);
+    istringstream iss(arg);
     string line;
     while (getline(iss, line, ' ')) 
     {
@@ -101,63 +118,8 @@ vector<string> parser::splitBySpace(string s)
     return removeEmptyStrings(v);
 }
 
-vector<string> parser::splitByDelimiter(string s, char d)
+vector<string> parser::tokenStream(string arg)
 {
-    vector<string> v;
-    istringstream iss(s);
-    string line;
-    while (getline(iss, line, d))
-    {
-        v.push_back(line);
-    }
-    return removeEmptyStrings(v);
-}
-
-vector<string> parser::splitByNewLine(string s) 
-{
-    vector<string> v;
-    istringstream iss(s);
-    string line;
-    while (getline(iss, line, '\n')) 
-    {
-        v.push_back(line);
-    }
-    return removeEmptyStrings(v);
-}
-
-vector<string> parser::tokenStream(string s)
-{
-    string p = padParens(s);
+    string p = padRightParens(arg);
     return splitBySpace(p);
-}
-
-bool parser::hasOuterParens(vector<string> v)
-{
-    int n = v.size() - 1;
-    return (v[0] == "(" && v[n] == ")");
-}
-
-bool parser::isAtomicList(vector<string> v)
-{
-    if (!isOperator(v[0]))
-    {
-        return false;
-    }
-    int max = v.size();
-    for (int i = 1; i < max; i++)
-    {
-        if (!isInt(v[i]))
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<string> parser::removeOuterTokens(vector<string> v)
-{
-    vector<string> r = v;
-    r.erase(r.begin());
-    r.pop_back();
-    return r;
 }
