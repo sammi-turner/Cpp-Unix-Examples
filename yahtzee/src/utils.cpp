@@ -9,7 +9,9 @@ int utils::pseudo(int arg)
 {
     int result = 0;
     if (arg > 1) 
+    {
         result = (rand() % arg) + 1;
+    }
     return result;
 }
 
@@ -69,12 +71,15 @@ bool utils::isPosInt(string arg)
     bool result = true;
     int size = arg.length();
     if (!isCharDigit(arg[0]) || arg[0] == '0')
+    {
         result = false;
-
+    }
     for (int i = 1; i < size; i++)
     {
         if (!isCharDigit(arg[i]))
+        {
             result = false;
+        }
     }
     return result;
 }
