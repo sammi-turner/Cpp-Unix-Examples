@@ -176,22 +176,25 @@ private:
 
 int main() 
 {
-    cout << "Enter the arithmetic expression: ";
-    string expression = Read::input();
+    string expression;
 
-    try 
+    while (true)
     {
-        Tokenizer tokenizer(expression);
-        Evaluator evaluator;
+        cout << "\n> ";
+        string expression = Read::input();
+        try 
+        {
+            Tokenizer tokenizer(expression);
+            Evaluator evaluator;
 
-        vector<string> tokens = tokenizer.tokenize();
-        double result = evaluator.evaluate(tokens);
-        cout << "Result: " << result << "\n";
-    } 
-    catch (const std::exception& e) 
-    {
-        cout << "Error: " << e.what() << "\n";
+            vector<string> tokens = tokenizer.tokenize();
+            double result = evaluator.evaluate(tokens);
+            cout << result << "\n";
+        } 
+        catch (const std::exception& e) 
+        {
+            cout << "Error: " << e.what() << "\n";
+            break;
+        }
     }
-
-    return 0;
 }
