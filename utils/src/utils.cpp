@@ -7,6 +7,13 @@ string utils::userInput()
     return s;
 }
 
+string utils::trimmedUserInput()
+{
+    string s;
+    getline(cin >> ws, s);
+    return s;
+}
+
 bool utils::isCharDigit(char arg)
 {
     return (isdigit(arg) > 0);

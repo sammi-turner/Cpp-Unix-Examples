@@ -5,6 +5,6 @@ using namespace utils;
 int main()
 {
     cout << "What's your full name? ";
-    string name = userInput();
-    cout << "Hello " << name << "\n";
+    string name = trimmedUserInput();
+    cout << "Hello " << name << ", its nice to meet you!\n";
 }

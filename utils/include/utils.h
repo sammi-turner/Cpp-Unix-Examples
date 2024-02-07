@@ -19,11 +19,13 @@ using std::ifstream;
 using std::string;
 using std::cout;
 using std::cin;
+using std::ws;
 
 namespace utils
 {   
     string userInput();
-
+    string trimmedUserInput();
+    
     bool isCharDigit(char arg);
     bool isPosInt(string arg);
     int toInt(string arg);
