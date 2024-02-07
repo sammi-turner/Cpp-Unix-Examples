@@ -14,9 +14,120 @@ string utils::trimmedUserInput()
     return s;
 }
 
+int utils::compareInts(const void* a, const void* b)
+{
+    return (*(int*)a - *(int*)b);
+}
+
+void utils::sortIntArray(int* arr, int size)
+{
+    qsort(arr, size, sizeof(int), compareInts);
+}
+
+void utils::shell(string arg)
+{
+    system(arg.c_str());
+}
+
+int utils::pseudo(int arg) {
+    int result = 0;
+    if (arg > 1)
+    {
+        result = (rand() % arg) + 1;
+    }
+    return result;
+}
+
+void utils::seed() 
+{
+    srand((int)time(0));
+}
+
 bool utils::isCharDigit(char arg)
 {
     return (isdigit(arg) > 0);
+}
+
+bool utils::isCharHexDigit(char arg)
+{
+    return (isxdigit(arg) > 0);
+}
+
+bool utils::isCharAlphaNumeric(char arg)
+{
+    return (isalnum(arg) > 0);
+}
+
+bool utils::isCharLetter(char arg)
+{
+    return (isalpha(arg) > 0);
+}
+
+bool utils::isCharLowerCase(char arg)
+{
+    return (islower(arg) > 0);
+}
+
+bool utils::isCharUpperCase(char arg)
+{
+    return (isupper(arg) > 0);
+}
+
+bool utils::isCharPunct(char arg)
+{
+    return (ispunct(arg) > 0);
+}
+
+bool utils::isCharWhiteSpace(char arg)
+{
+    return (isspace(arg) > 0);
+}
+
+bool utils::isCharGraphical(char arg)
+{
+    return (isgraph(arg) > 0);
+}
+
+bool utils::isLowerCase(string arg)
+{
+    bool result = true;
+    int size = arg.length();
+    for (int i = 0; i < size; i++)
+    {
+        if (!isCharLowerCase(arg[i]))
+        {
+            result = false;
+        }
+    }
+    return result;
+}
+
+bool utils::isUpperCase(string arg)
+{
+    bool result = true;
+    int size = arg.length();
+    for (int i = 0; i < size; i++)
+    {
+        if (!isCharUpperCase(arg[i]))
+        {
+            result = false;
+        }
+    }
+    return result;
+}
+
+bool utils::isAlphabetic(string arg)
+{
+    bool result = true;
+    int size = arg.length();
+    for (int i = 0; i < size; i++)
+    {
+        if (!isCharLowerCase(arg[i]) && !isCharUpperCase(arg[i]))
+        {
+            result = false;
+        }
+    }
+    return result;
 }
 
 bool utils::isPosInt(string arg)
@@ -37,9 +148,49 @@ bool utils::isPosInt(string arg)
     return result;
 }
 
+bool utils::isNegInt(string arg)
+{
+    bool result = true;
+    int size = arg.length();
+    if (arg[0] != '-')
+    {
+        result = false;
+    }
+    if (!isCharDigit(arg[1]) || arg[1] == '0')
+    {
+        result = false;
+    }
+    for (int i = 2; i < size; i++)
+    {
+        if (!isCharDigit(arg[i]))
+        {
+            result = false;
+        }
+    }
+    return result;
+}
+
+bool utils::isInt(string arg)
+{
+    return (arg == "0" || isPosInt(arg) || isNegInt(arg));
+}
+
+bool utils::isFloat(string arg)
+{
+    float f;
+    istringstream iss(arg);
+    iss >> noskipws >> f;
+    return iss.eof() && !iss.fail();
+}
+
 int utils::toInt(string arg)
 {
     return std::stoi(arg);
+}
+
+float utils::toFloat(string arg)
+{
+    return std::stof(arg);
 }
 
 bool utils::fileExists(string name)
@@ -89,6 +240,66 @@ string utils::fileRead(string name)
     return value;
 }
 
+void utils::fileDelete(string arg)
+{
+    system(arg.c_str());
+}
+
+int utils::charCount(string arg, char ch)
+{
+    int count = 0;
+    int len = arg.length();
+    for (int i = 0; i < len; i++)
+    {
+        if (arg[i] == ch)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+string utils::replaceChar(string arg, char oldChar, char newChar)
+{
+    int len = arg.length();
+    string result = arg;
+    for (int i = 0; i < len; i++)
+    {
+        if (arg[i] == oldChar)
+        {
+            result[i] = newChar;
+        }
+    }
+    return result;
+}
+
+bool utils::isMember(string arg, string* arr, int arrSize)
+{
+    bool value = false;
+    for (int i = 0; i < arrSize; i++)
+    {
+        if (arg == arr[i])
+        {
+            value = true;
+        }
+    }
+    return value;
+}
+
+bool utils::isSubString(string arg1, string arg2)
+{
+    bool value;
+    if (arg2.find(arg1) != string::npos)
+    {
+        value = true;
+    }
+    else
+    {
+        value = false;
+    }
+    return value;
+}
+
 string utils::firstSlice(string arg, char delim)
 {
     string result = arg;
@@ -101,6 +312,16 @@ string utils::firstSlice(string arg, char delim)
     return result;
 }
 
+string utils::firstWord(string arg)
+{
+    return firstSlice(arg, ' ');
+}
+
+string utils::firstLine(string arg)
+{
+    return firstSlice(arg, '\n');
+}
+
 string utils::otherSlices(string arg, char delim)
 {
     string result = arg;
@@ -111,6 +332,16 @@ string utils::otherSlices(string arg, char delim)
     int index = result.find(delim);
     result = result.substr((index + 1), result.length());
     return result;
+}
+
+string utils::otherWords(string arg)
+{
+    return otherSlices(arg, ' ');
+}
+
+string utils::otherLines(string arg)
+{
+    return otherSlices(arg, '\n');
 }
 
 int utils::sliceCount(string arg, char delim)
@@ -126,6 +357,11 @@ int utils::sliceCount(string arg, char delim)
     }
     count += (final != "");
     return count;
+}
+
+int utils::wordCount(string arg)
+{
+    return sliceCount(arg, ' ');
 }
 
 int utils::lineCount(string arg)
@@ -150,6 +386,17 @@ string utils::trimWhiteSpace(string arg)
     return dest;
 }
 
+string utils::substitute(string arg, string x, string y)
+{
+    size_t pos;
+    int len = x.length();
+    while ((pos = arg.find(x)) != string::npos)
+    {
+        arg.replace(pos, len, y);
+    }
+    return arg;
+}
+
 string utils::nthSlice(string arg, char delim, int num)
 {
     string trim = trimWhiteSpace(arg);
@@ -160,6 +407,11 @@ string utils::nthSlice(string arg, char delim, int num)
         trim = otherSlices(trim, delim);
     }
     return firstSlice(trim, delim);
+}
+
+string utils::nthWord(string arg, int num)
+{
+    return nthSlice(arg, ' ', num);
 }
 
 string utils::nthLine(string arg, int num)
@@ -191,8 +443,31 @@ string utils::removeNthSlice(string arg, char delim, int num)
     return result;
 }
 
+string utils::removeNthWord(string arg, int num)
+{
+    return removeNthSlice(arg, ' ', num);
+}
+
 string utils::removeNthLine(string arg, int num)
 {
+    return removeNthSlice(arg, '\n', num);
+}
+
+string utils::removeLastSlice(string arg, char delim)
+{
+    int num = sliceCount(arg, delim);
+    return removeNthSlice(arg, delim, num);
+}
+
+string utils::removeLastWord(string arg)
+{
+    int num = sliceCount(arg, ' ');
+    return removeNthSlice(arg, ' ', num);
+}
+
+string utils::removeLastLine(string arg)
+{
+    int num = sliceCount(arg, '\n');
     return removeNthSlice(arg, '\n', num);
 }
 
@@ -214,4 +489,75 @@ string utils::insertSliceAt(string arg, string ins, char delim, int num)
 string utils::insertLineAt(string arg, string ins, int num)
 {
     return insertSliceAt(arg, ins, '\n', num);
+}
+
+string utils::insertWordAt(string arg, string ins, int num)
+{
+    return insertSliceAt(arg, ins, ' ', num);
+}
+
+string utils::replaceSliceAt(string arg, string ins, char delim, int num)
+{
+    string start = insertSliceAt(arg, ins, delim, num);
+    string value = removeNthSlice(start, delim, (num + 1));
+    return value;
+}
+
+string utils::replaceWordAt(string arg, string ins, int num)
+{
+    string start = insertSliceAt(arg, ins, ' ', num);
+    string value = removeNthSlice(start, ' ', (num + 1));
+    return value;
+}
+
+string utils::replaceLineAt(string arg, string ins, int num)
+{
+    string start = insertSliceAt(arg, ins, '\n', num);
+    string value = removeNthSlice(start, '\n', (num + 1));
+    return value;
+}
+
+bool utils::readFileIntoVector(string fileName, vector<string>& vec)
+{
+    ifstream in(fileName.c_str());
+    if (!in)
+    {
+        cerr << "Cannot open " << fileName << " in the working directory.\n";
+        return false;
+    }
+    string s;
+    while (getline(in, s))
+    {
+        if (s.size() > 0)
+        {
+            vec.push_back(s);
+        }
+    }
+    in.close();
+    return true;
+}
+
+void utils::appendVectorToFile(string fileName, vector<string> vec)
+{
+    string current = "";
+    int len = vec.size();
+    for (int i = 0; i < len; i++)
+    {
+        current = vec[i] + "\n";
+        fileAppend(fileName, current);
+    }
+}
+
+int utils::stringPosition(string arg, vector<string> vec)
+{
+    int value = -1;
+    int len = vec.size();
+    for (int i = 0; i < len; i++)
+    {
+        if (arg == vec[i])
+        {
+            value = i;
+        }
+    }
+    return value;
 }
