@@ -4,7 +4,27 @@ using namespace utils;
 
 int main()
 {
-    cout << "What's your full name? ";
-    string name = trimmedUserInput();
-    cout << "Hello " << name << ", its nice to meet you!\n";
+    int n;
+    string s;
+    while(true)
+    {
+        cout << "\n> ";
+        s = userInput();
+        if (isPosInt(s))
+        {
+            cout << "Positive.\n";
+        }
+        else if (isNegInt(s))
+        {
+            cout << "Negative.\n";
+        }
+        else if (isInt(s))
+        {
+            cout << "Zero.\n";
+        }
+        else 
+        {
+            break;
+        }
+    }
 }

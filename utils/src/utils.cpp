@@ -3,14 +3,14 @@
 string utils::userInput()
 {
     string s;
-    getline(cin, s);
+    std::getline(std::cin, s);
     return s;
 }
 
 string utils::trimmedUserInput()
 {
     string s;
-    getline(cin >> ws, s);
+    std::getline(std::cin >> std::ws, s);
     return s;
 }
 
@@ -132,54 +132,37 @@ bool utils::isAlphabetic(string arg)
 
 bool utils::isPosInt(string arg)
 {
-    bool result = true;
-    int size = arg.length();
-    if (!isCharDigit(arg[0]) || arg[0] == '0')
+    if (isInt(arg))
     {
-        result = false;
+        int n = toInt(arg);
+        return n > 0;
     }
-    for (int i = 1; i < size; i++)
-    {
-        if (!isCharDigit(arg[i]))
-        {
-            result = false;
-        }
-    }
-    return result;
+    return false;
 }
 
 bool utils::isNegInt(string arg)
 {
-    bool result = true;
-    int size = arg.length();
-    if (arg[0] != '-')
+    if (isInt(arg))
     {
-        result = false;
+        int n = toInt(arg);
+        return n < 0;
     }
-    if (!isCharDigit(arg[1]) || arg[1] == '0')
-    {
-        result = false;
-    }
-    for (int i = 2; i < size; i++)
-    {
-        if (!isCharDigit(arg[i]))
-        {
-            result = false;
-        }
-    }
-    return result;
+    return false;
 }
 
 bool utils::isInt(string arg)
 {
-    return (arg == "0" || isPosInt(arg) || isNegInt(arg));
+    std::stringstream ss(arg);
+    int n;
+    ss >> n;
+    return !ss.fail() && ss.eof(); 
 }
 
 bool utils::isFloat(string arg)
 {
     float f;
-    istringstream iss(arg);
-    iss >> noskipws >> f;
+    std::istringstream iss(arg);
+    iss >> std::noskipws >> f;
     return iss.eof() && !iss.fail();
 }
 
@@ -196,7 +179,7 @@ float utils::toFloat(string arg)
 bool utils::fileExists(string name)
 {
     bool value = false;
-    ifstream f(name);
+    std::ifstream f(name);
     if (f)
     {
         value = true;
@@ -206,7 +189,7 @@ bool utils::fileExists(string name)
 
 int utils::fileWrite(string name, string text)
 {
-    ofstream myfile;
+    std::ofstream myfile;
     myfile.open(name);
     if (myfile.is_open())
     {
@@ -222,18 +205,18 @@ int utils::fileWrite(string name, string text)
 
 void utils::fileAppend(string name, string text)
 {
-    ofstream outfile;
-    outfile.open(name, ios_base::app);
+    std::ofstream outfile;
+    outfile.open(name, std::ios_base::app);
     outfile << text;
 }
 
 string utils::fileRead(string name)
 {
-    ifstream f(name);
+    std::ifstream f(name);
     string value;
     if(f) 
     {
-        ostringstream ss;
+        std::ostringstream ss;
         ss << f.rdbuf();
         value = ss.str();
     }
@@ -519,14 +502,14 @@ string utils::replaceLineAt(string arg, string ins, int num)
 
 bool utils::readFileIntoVector(string fileName, vector<string>& vec)
 {
-    ifstream in(fileName.c_str());
+    std::ifstream in(fileName.c_str());
     if (!in)
     {
-        cerr << "Cannot open " << fileName << " in the working directory.\n";
+        std::cerr << "Cannot open " << fileName << " in the working directory.\n";
         return false;
     }
     string s;
-    while (getline(in, s))
+    while (std::getline(in, s))
     {
         if (s.size() > 0)
         {

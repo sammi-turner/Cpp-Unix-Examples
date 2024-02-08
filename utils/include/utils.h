@@ -9,22 +9,11 @@
 #include <string>
 #include <vector>
 
-/* Standard namespace */
+/* Shorthands */
 
-using std::ostringstream;
-using std::istringstream;
-using std::to_string;
-using std::noskipws;
-using std::ios_base;
-using std::ofstream;
-using std::ifstream;
-using std::getline;
 using std::vector;
 using std::string;
 using std::cout;
-using std::cerr;
-using std::cin;
-using std::ws;
 
 namespace utils
 {   
