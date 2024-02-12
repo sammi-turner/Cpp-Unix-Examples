@@ -544,3 +544,15 @@ int utils::stringPosition(string arg, vector<string> vec)
     }
     return value;
 }
+
+vector<string> utils::splitStringBySpace(string s) 
+{
+    vector<string> result;
+    std::istringstream iss(s);
+    string token;
+    while (iss >> token) 
+    {
+        result.push_back(token);
+    }
+    return result;
+}

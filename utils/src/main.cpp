@@ -4,27 +4,11 @@ using namespace utils;
 
 int main()
 {
-    int n;
-    string s;
-    while(true)
+    string sentence = "Mary had a little lamb.";
+    int words = wordCount(sentence);
+    vector<string> v = splitStringBySpace(sentence);
+    for (int i = 0; i < words; i++)
     {
-        cout << "\n> ";
-        s = userInput();
-        if (isPosInt(s))
-        {
-            cout << "Positive.\n";
-        }
-        else if (isNegInt(s))
-        {
-            cout << "Negative.\n";
-        }
-        else if (isInt(s))
-        {
-            cout << "Zero.\n";
-        }
-        else 
-        {
-            break;
-        }
+        cout << v[i] << "\n";
     }
 }
