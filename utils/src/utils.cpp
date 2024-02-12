@@ -500,26 +500,6 @@ string utils::replaceLineAt(string arg, string ins, int num)
     return value;
 }
 
-bool utils::readFileIntoVector(string fileName, vector<string>& vec)
-{
-    std::ifstream in(fileName.c_str());
-    if (!in)
-    {
-        std::cerr << "Cannot open " << fileName << " in the working directory.\n";
-        return false;
-    }
-    string s;
-    while (std::getline(in, s))
-    {
-        if (s.size() > 0)
-        {
-            vec.push_back(s);
-        }
-    }
-    in.close();
-    return true;
-}
-
 void utils::appendVectorToFile(string fileName, vector<string> vec)
 {
     string current = "";
