@@ -100,7 +100,6 @@ namespace utils
     string replaceWordAt(string arg, string ins, int num);
     string replaceLineAt(string arg, string ins, int num);
 
-    bool readFileIntoVector(string fileName, vector<string>& vec);
     void appendVectorToFile(string fileName, vector<string> vec);
     int stringPosition(string arg, vector<string> vec);
 
