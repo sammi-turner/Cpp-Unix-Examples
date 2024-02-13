@@ -525,14 +525,41 @@ int utils::stringPosition(string arg, vector<string> vec)
     return value;
 }
 
+vector<string> utils::splitStringByChar(string s, char delim) 
+{
+    int slices = sliceCount(s, delim);
+    vector<string> result;
+    string currentSlice;
+    for (int i = 1; i <= slices; i++)
+    {
+        currentSlice = nthSlice(s, '|', i);
+        result.push_back(currentSlice);
+    }
+    return result;
+}
+
 vector<string> utils::splitStringBySpace(string s) 
 {
+    int words = wordCount(s);
     vector<string> result;
-    std::istringstream iss(s);
-    string token;
-    while (iss >> token) 
+    string currentWord;
+    for (int i = 1; i <= words; i++)
     {
-        result.push_back(token);
+        currentWord = nthWord(s, i);
+        result.push_back(currentWord);
+    }
+    return result;
+}
+
+vector<string> utils::splitStringByNewline(string s) 
+{
+    int lines = lineCount(s);
+    vector<string> result;
+    string currentLine;
+    for (int i = 1; i <= lines; i++)
+    {
+        currentLine = nthLine(s, i);
+        result.push_back(currentLine);
     }
     return result;
 }
