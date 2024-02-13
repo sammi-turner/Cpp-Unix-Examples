@@ -103,7 +103,9 @@ namespace utils
     void appendVectorToFile(string fileName, vector<string> vec);
     int stringPosition(string arg, vector<string> vec);
 
+    vector<string> splitStringByChar(string s, char delim);
     vector<string> splitStringBySpace(string s);
+    vector<string> splitStringByNewline(string s);
 }
 
 #endif
