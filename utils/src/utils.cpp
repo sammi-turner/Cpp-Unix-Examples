@@ -383,7 +383,7 @@ string utils::substitute(string arg, string x, string y)
 string utils::nthSlice(string arg, char delim, int num)
 {
     string trim = trimWhiteSpace(arg);
-    int count = 1;
+    int count = 0;
     while (count < num)
     {
         count++;
@@ -407,7 +407,7 @@ string utils::removeNthSlice(string arg, char delim, int num)
     string trim = trimWhiteSpace(arg);
     string result = "";
     int max = sliceCount(arg, delim);
-    for (int i = 1; i <= num; i++)
+    for (int i = 0; i < num; i++)
     {
         if (i < num)
         {
@@ -530,7 +530,7 @@ vector<string> utils::splitStringByChar(string s, char delim)
     int slices = sliceCount(s, delim);
     vector<string> result;
     string currentSlice;
-    for (int i = 1; i <= slices; i++)
+    for (int i = 0; i < slices; i++)
     {
         currentSlice = nthSlice(s, '|', i);
         result.push_back(currentSlice);
@@ -543,7 +543,7 @@ vector<string> utils::splitStringBySpace(string s)
     int words = wordCount(s);
     vector<string> result;
     string currentWord;
-    for (int i = 1; i <= words; i++)
+    for (int i = 0; i < words; i++)
     {
         currentWord = nthWord(s, i);
         result.push_back(currentWord);
@@ -556,7 +556,7 @@ vector<string> utils::splitStringByNewline(string s)
     int lines = lineCount(s);
     vector<string> result;
     string currentLine;
-    for (int i = 1; i <= lines; i++)
+    for (int i = 0; i < lines; i++)
     {
         currentLine = nthLine(s, i);
         result.push_back(currentLine);
