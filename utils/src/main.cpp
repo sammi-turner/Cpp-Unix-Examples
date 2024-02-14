@@ -4,7 +4,7 @@ using namespace utils;
 
 int main()
 {
-    string sentence = fileRead("example.txt");
+    string sentence = "Mary had a little lamb";
     vector<string> v = splitStringBySpace(sentence);
     int words = wordCount(sentence);
     for (int i = 0; i < words; i++)
