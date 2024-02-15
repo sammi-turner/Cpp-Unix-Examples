@@ -62,7 +62,7 @@ namespace utils
     int charCount(string arg, char ch);
     string replaceChar(string arg, char oldChar, char newChar);
 
-    bool isMember(string arg, string* arr, int arrSize);
+    bool isMember(string arg, vector<string> v);
     bool isSubString(string arg1, string arg2);
 
     string firstSlice(string arg, char delim);
@@ -100,12 +100,14 @@ namespace utils
     string replaceWordAt(string arg, string ins, int num);
     string replaceLineAt(string arg, string ins, int num);
 
-    void appendVectorToFile(string fileName, vector<string> vec);
-    int stringPosition(string arg, vector<string> vec);
+    void appendVectorToFile(string fileName, vector<string> v);
+    int stringPosition(string arg, vector<string> v);
 
     vector<string> splitStringByChar(string s, char delim);
     vector<string> splitStringBySpace(string s);
     vector<string> splitStringByNewline(string s);
+
+    vector<string> removeEmptyStrings(vector<string> v);
 }
 
 #endif
