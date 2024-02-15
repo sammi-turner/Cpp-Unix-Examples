@@ -256,17 +256,17 @@ string utils::replaceChar(string arg, char oldChar, char newChar)
     return result;
 }
 
-bool utils::isMember(string arg, string* arr, int arrSize)
+bool utils::isMember(string arg, vector<string> v)
 {
-    bool value = false;
-    for (int i = 0; i < arrSize; i++)
+    int size = v.size();
+    for (int i = 0; i < size; i++)
     {
-        if (arg == arr[i])
+        if (arg == v[i])
         {
-            value = true;
+            return true;
         }
     }
-    return value;
+    return false;
 }
 
 bool utils::isSubString(string arg1, string arg2)
@@ -500,24 +500,24 @@ string utils::replaceLineAt(string arg, string ins, int num)
     return value;
 }
 
-void utils::appendVectorToFile(string fileName, vector<string> vec)
+void utils::appendVectorToFile(string fileName, vector<string> v)
 {
     string current = "";
-    int len = vec.size();
+    int len = v.size();
     for (int i = 0; i < len; i++)
     {
-        current = vec[i] + "\n";
+        current = v[i] + "\n";
         fileAppend(fileName, current);
     }
 }
 
-int utils::stringPosition(string arg, vector<string> vec)
+int utils::stringPosition(string arg, vector<string> v)
 {
     int value = -1;
-    int len = vec.size();
+    int len = v.size();
     for (int i = 0; i < len; i++)
     {
-        if (arg == vec[i])
+        if (arg == v[i])
         {
             value = i;
         }
@@ -560,6 +560,20 @@ vector<string> utils::splitStringByNewline(string s)
     {
         currentLine = nthLine(s, i);
         result.push_back(currentLine);
+    }
+    return result;
+}
+
+vector<string> utils::removeEmptyStrings(vector<string> v)
+{
+    int size = v.size();
+    vector<string> result;
+    for (int i = 0; i < size; i++)
+    {
+        if (v[i] != "")
+        {
+            result.push_back(v[i]);
+        }
     }
     return result;
 }
