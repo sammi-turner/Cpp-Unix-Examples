@@ -256,17 +256,17 @@ string utils::replaceChar(string arg, char oldChar, char newChar)
     return result;
 }
 
-bool utils::isMember(string arg, vector<string> v)
+int utils::isMember(string arg, vector<string> v)
 {
     int size = v.size();
     for (int i = 0; i < size; i++)
     {
         if (arg == v[i])
         {
-            return true;
+            return i;
         }
     }
-    return false;
+    return -1;
 }
 
 bool utils::isSubString(string arg1, string arg2)
