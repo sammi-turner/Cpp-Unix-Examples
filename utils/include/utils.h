@@ -62,7 +62,7 @@ namespace utils
     int charCount(string arg, char ch);
     string replaceChar(string arg, char oldChar, char newChar);
 
-    bool isMember(string arg, vector<string> v);
+    int isMember(string arg, vector<string> v);
     bool isSubString(string arg1, string arg2);
 
     string firstSlice(string arg, char delim);
