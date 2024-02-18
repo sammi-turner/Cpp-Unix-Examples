@@ -256,19 +256,6 @@ string utils::replaceChar(string arg, char oldChar, char newChar)
     return result;
 }
 
-int utils::isMember(string arg, vector<string> v)
-{
-    int size = v.size();
-    for (int i = 0; i < size; i++)
-    {
-        if (arg == v[i])
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
 bool utils::isSubString(string arg1, string arg2)
 {
     bool value;
@@ -574,6 +561,24 @@ vector<string> utils::removeEmptyStrings(vector<string> v)
         {
             result.push_back(v[i]);
         }
+    }
+    return result;
+}
+
+vector<string> utils::concatStringVectors(vector<string> v1, vector<string> v2)
+{
+    vector<string> result = v1;
+    result.insert(result.end(), v2.begin(), v2.end());
+    return result;
+}
+
+vector<string> utils::reverseStringVector(vector<string> v)
+{
+    vector<string> result;
+    int size = v.size();
+    for (int i = 1; i <= size; i++)
+    {
+        result.push_back(v[size - i]);
     }
     return result;
 }
