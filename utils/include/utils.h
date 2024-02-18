@@ -11,8 +11,8 @@
 
 /* Shorthands */
 
-using std::vector;
 using std::string;
+using std::vector;
 using std::cout;
 
 namespace utils
@@ -61,8 +61,6 @@ namespace utils
 
     int charCount(string arg, char ch);
     string replaceChar(string arg, char oldChar, char newChar);
-
-    int isMember(string arg, vector<string> v);
     bool isSubString(string arg1, string arg2);
 
     string firstSlice(string arg, char delim);
@@ -108,6 +106,8 @@ namespace utils
     vector<string> splitStringByNewline(string s);
 
     vector<string> removeEmptyStrings(vector<string> v);
+    vector<string> concatStringVectors(vector<string> v1, vector<string> v2);
+    vector<string> reverseStringVector(vector<string> v);
 }
 
 #endif
