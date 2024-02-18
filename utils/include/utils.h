@@ -19,95 +19,90 @@ namespace utils
 {   
     string userInput();
     string trimmedUserInput();
+    string trimWhiteSpace(const string arg);
 
-    int compareInts(const void* a, const void* b);
-    void sortIntArray(int* arr, int size);
-
-    void shell(string arg);
-    int pseudo(int arg);
+    void shell(const string arg);
+    int pseudo(const int arg);
     void seed();
 
-    bool isCharDigit(char arg);
-    bool isCharHexDigit(char arg);
-    bool isCharAlphaNumeric(char arg);
+    bool isCharDigit(const char arg);
+    bool isCharHexDigit(const char arg);
+    bool isCharAlphaNumeric(const char arg);
 
-    bool isCharLetter(char arg);
-    bool isCharLowerCase(char arg);
-    bool isCharUpperCase(char arg);
+    bool isCharLetter(const char arg);
+    bool isCharLowerCase(const char arg);
+    bool isCharUpperCase(const char arg);
 
-    bool isCharPunct(char arg);
-    bool isCharWhiteSpace(char arg);
-    bool isCharGraphical(char arg);
+    bool isCharPunct(const char arg);
+    bool isCharWhiteSpace(const char arg);
+    bool isCharGraphical(const char arg);
 
-    bool isLowerCase(string arg);
-    bool isUpperCase(string arg);
-    bool isAlphabetic(string arg);
+    bool isLowerCase(const string arg);
+    bool isUpperCase(const string arg);
+    bool isAlphabetic(const string arg);
 
-    bool isPosInt(string arg);
-    bool isNegInt(string arg);
+    bool isPosInt(const string arg);
+    bool isNegInt(const string arg);
 
-    bool isInt(string arg);
-    bool isFloat(string arg);
+    bool isInt(const string arg);
+    bool isFloat(const string arg);
 
-    int toInt(string arg);
-    float toFloat(string arg);
+    int toInt(const string arg);
+    float toFloat(const string arg);
 
-    bool fileExists(string name);
-    int fileWrite(string name, string text);
-    void fileAppend(string name, string text);
+    bool fileExists(const string name);
+    int fileWrite(const string name, string text);
+    void fileAppend(const string name, string text);
 
-    string fileRead(string name);
-    void fileDelete(string arg);
+    string fileRead(const string name);
+    void fileDelete(const string arg);
 
-    int charCount(string arg, char ch);
-    string replaceChar(string arg, char oldChar, char newChar);
-    bool isSubString(string arg1, string arg2);
+    int charCount(const string arg, const char ch);
+    string replaceChar(const string arg, const char oldChar, const char newChar);
+    bool isSubString(const string arg1, const string arg2);
 
-    string firstSlice(string arg, char delim);
-    string firstWord(string arg);
-    string firstLine(string arg);
+    string firstSlice(const string arg, const char delim);
+    string firstWord(const string arg);
+    string firstLine(const string arg);
 
-    string otherSlices(string arg, char delim);
-    string otherWords(string arg);
-    string otherLines(string arg);
+    string otherSlices(const string arg, const char delim);
+    string otherWords(const string arg);
+    string otherLines(const string arg);
 
-    int sliceCount(string arg, char delim);
-    int wordCount(string arg);
-    int lineCount(string arg);
+    int sliceCount(const string arg, const char delim);
+    int wordCount(const string arg);
+    int lineCount(const string arg);
 
-    string trimWhiteSpace(string arg);
-    string substitute(string arg, string x, string y);
+    string nthSlice(const string arg, const char delim, const int num);
+    string nthWord(const string arg, const int num);
+    string nthLine(const string arg, const int num);
 
-    string nthSlice(string arg, char delim, int num);
-    string nthWord(string arg, int num);
-    string nthLine(string arg, int num);
+    string removeNthSlice(const string arg, const char delim, const int num);
+    string removeNthWord(const string arg, const int num);
+    string removeNthLine(const string arg, const int num);
 
-    string removeNthSlice(string arg, char delim, int num);
-    string removeNthWord(string arg, int num);
-    string removeNthLine(string arg, int num);
+    string removeLastSlice(const string arg, const char delim);
+    string removeLastWord(const string arg);
+    string removeLastLine(const string arg);
 
-    string removeLastSlice(string arg, char delim);
-    string removeLastWord(string arg);
-    string removeLastLine(string arg);
+    string insertSliceAt(const string arg, const string ins, const char delim, const int num);
+    string insertWordAt(const string arg, const string ins, const int num);
+    string insertLineAt(const string arg, const string ins, const int num);
 
-    string insertSliceAt(string arg, string ins, char delim, int num);
-    string insertWordAt(string arg, string ins, int num);
-    string insertLineAt(string arg, string ins, int num);
+    string replaceSliceAt(const string arg, const string ins, const char delim, const int num);
+    string replaceWordAt(const string arg, const string ins, const int num);
+    string replaceLineAt(const string arg, const string ins, const int num);
 
-    string replaceSliceAt(string arg, string ins, char delim, int num);
-    string replaceWordAt(string arg, string ins, int num);
-    string replaceLineAt(string arg, string ins, int num);
+    void appendVectorToFile(const string fileName, const vector<string> v);
+    int stringPosition(const string arg, const vector<string> v);
 
-    void appendVectorToFile(string fileName, vector<string> v);
-    int stringPosition(string arg, vector<string> v);
+    vector<string> splitStringByChar(const string s, const char delim);
+    vector<string> splitStringBySpace(const string s);
+    vector<string> splitStringByNewline(const string s);
 
-    vector<string> splitStringByChar(string s, char delim);
-    vector<string> splitStringBySpace(string s);
-    vector<string> splitStringByNewline(string s);
-
-    vector<string> removeEmptyStrings(vector<string> v);
-    vector<string> concatStringVectors(vector<string> v1, vector<string> v2);
-    vector<string> reverseStringVector(vector<string> v);
+    vector<string> removeEmptyStrings(const vector<string> v);
+    vector<string> concatStringVectors(const vector<string> v1, const vector<string> v2);
+    vector<string> reverseStringVector(const vector<string> v);
 }
 
 #endif
