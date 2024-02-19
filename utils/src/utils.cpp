@@ -98,10 +98,9 @@ bool utils::isCharGraphical(const char arg)
 bool utils::isLowerCase(const string arg)
 {
     bool result = true;
-    int size = arg.length();
-    for (int i = 0; i < size; i++)
+    for (char c : arg)
     {
-        if (!isCharLowerCase(arg[i]))
+        if (!isCharLowerCase(c))
         {
             result = false;
         }
@@ -112,10 +111,9 @@ bool utils::isLowerCase(const string arg)
 bool utils::isUpperCase(const string arg)
 {
     bool result = true;
-    int size = arg.length();
-    for (int i = 0; i < size; i++)
+    for (char c : arg)
     {
-        if (!isCharUpperCase(arg[i]))
+        if (!isCharUpperCase(c))
         {
             result = false;
         }
@@ -126,10 +124,9 @@ bool utils::isUpperCase(const string arg)
 bool utils::isAlphabetic(const string arg)
 {
     bool result = true;
-    int size = arg.length();
-    for (int i = 0; i < size; i++)
+    for (char c : arg)
     {
-        if (!isCharLowerCase(arg[i]) && !isCharUpperCase(arg[i]))
+        if (!isCharLowerCase(c) && !isCharUpperCase(c))
         {
             result = false;
         }
@@ -239,9 +236,9 @@ int utils::charCount(const string arg, const char ch)
 {
     int count = 0;
     int len = arg.length();
-    for (int i = 0; i < len; i++)
+    for (char c : arg)
     {
-        if (arg[i] == ch)
+        if (c == ch)
         {
             count++;
         }
@@ -469,10 +466,9 @@ string utils::replaceLineAt(const string arg, const string ins, const int num)
 void utils::appendVectorToFile(const string fileName, const vector<string> v)
 {
     string current = "";
-    int len = v.size();
-    for (int i = 0; i < len; i++)
+    for (string s : v)
     {
-        current = v[i] + "\n";
+        current = + "\n";
         fileAppend(fileName, current);
     }
 }
@@ -491,73 +487,72 @@ int utils::stringPosition(const string arg, const vector<string> v)
     return value;
 }
 
-vector<string> utils::splitStringByChar(const string s, const char delim) 
+vector<string> utils::splitStringByChar(const string arg, const char delim) 
 {
-    int slices = sliceCount(s, delim);
+    int slices = sliceCount(arg, delim);
     vector<string> result;
     string currentSlice;
     for (int i = 0; i < slices; i++)
     {
-        currentSlice = nthSlice(s, '|', i);
+        currentSlice = nthSlice(arg, '|', i);
         result.push_back(currentSlice);
     }
     return result;
 }
 
-vector<string> utils::splitStringBySpace(const string s) 
+vector<string> utils::splitStringBySpace(const string arg) 
 {
-    int words = wordCount(s);
+    int words = wordCount(arg);
     vector<string> result;
     string currentWord;
     for (int i = 0; i < words; i++)
     {
-        currentWord = nthWord(s, i);
+        currentWord = nthWord(arg, i);
         result.push_back(currentWord);
     }
     return result;
 }
 
-vector<string> utils::splitStringByNewline(const string s) 
+vector<string> utils::splitStringByNewline(const string arg) 
 {
-    int lines = lineCount(s);
+    int lines = lineCount(arg);
     vector<string> result;
     string currentLine;
     for (int i = 0; i < lines; i++)
     {
-        currentLine = nthLine(s, i);
+        currentLine = nthLine(arg, i);
         result.push_back(currentLine);
     }
     return result;
 }
 
-vector<string> utils::removeEmptyStrings(const vector<string> v)
+vector<string> utils::removeEmptyStrings(const vector<string> arg)
 {
-    int size = v.size();
     vector<string> result;
-    for (int i = 0; i < size; i++)
+    for (string s : arg)
     {
-        if (v[i] != "")
+        if (s != "")
         {
-            result.push_back(v[i]);
+            result.push_back(s);
         }
     }
     return result;
 }
 
-vector<string> utils::concatStringVectors(const vector<string> v1, const vector<string> v2)
+vector<string> utils::concatStringVectors(const vector<string> arg1, const vector<string> arg2)
 {
-    vector<string> result = v1;
-    result.insert(result.end(), v2.begin(), v2.end());
+    vector<string> result = arg1;
+    result.insert(result.end(), arg2.begin(), arg2.end());
     return result;
 }
 
-vector<string> utils::reverseStringVector(const vector<string> v)
+vector<string> utils::reverseStringVector(const vector<string> arg)
 {
     vector<string> result;
-    int size = v.size();
+    int size = arg.size();
     for (int i = 1; i <= size; i++)
     {
-        result.push_back(v[size - i]);
+        result.push_back(arg[size - i]);
     }
     return result;
 }

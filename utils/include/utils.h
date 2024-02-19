@@ -96,13 +96,13 @@ namespace utils
     void appendVectorToFile(const string fileName, const vector<string> v);
     int stringPosition(const string arg, const vector<string> v);
 
-    vector<string> splitStringByChar(const string s, const char delim);
-    vector<string> splitStringBySpace(const string s);
-    vector<string> splitStringByNewline(const string s);
+    vector<string> splitStringByChar(const string arg, const char delim);
+    vector<string> splitStringBySpace(const string arg);
+    vector<string> splitStringByNewline(const string arg);
 
-    vector<string> removeEmptyStrings(const vector<string> v);
-    vector<string> concatStringVectors(const vector<string> v1, const vector<string> v2);
-    vector<string> reverseStringVector(const vector<string> v);
+    vector<string> removeEmptyStrings(const vector<string> arg);
+    vector<string> concatStringVectors(const vector<string> arg1, const vector<string> arg2);
+    vector<string> reverseStringVector(const vector<string> arg);
 }
 
 #endif
