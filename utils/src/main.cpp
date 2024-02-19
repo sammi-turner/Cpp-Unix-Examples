@@ -6,10 +6,9 @@ int main()
 {
     string sentence = "Mary had a little lamb";
     vector<string> v = splitStringBySpace(sentence);
-    int words = wordCount(sentence);
-    for (int i = 0; i < words; i++)
+    for (string s : v)
     {
-        cout << v[i] << "\n";
+        cout << s << "\n";
     }
     cout << "\nThe word 'lamb' is at index " << stringPosition("lamb", v) << "\n";
 }
