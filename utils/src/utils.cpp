@@ -2,14 +2,14 @@
 
 string utils::userInput()
 {
-    string s;
+    string s{};
     std::getline(std::cin, s);
     return s;
 }
 
 string utils::trimmedUserInput()
 {
-    string s;
+    string s{};
     std::getline(std::cin >> std::ws, s);
     return s;
 }
@@ -97,41 +97,38 @@ bool utils::isCharGraphical(const char arg)
 
 bool utils::isLowerCase(const string arg)
 {
-    bool result = true;
     for (char c : arg)
     {
         if (!isCharLowerCase(c))
         {
-            result = false;
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 bool utils::isUpperCase(const string arg)
 {
-    bool result = true;
     for (char c : arg)
     {
         if (!isCharUpperCase(c))
         {
-            result = false;
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 bool utils::isAlphabetic(const string arg)
 {
-    bool result = true;
     for (char c : arg)
     {
         if (!isCharLowerCase(c) && !isCharUpperCase(c))
         {
-            result = false;
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 bool utils::isPosInt(const string arg)
@@ -157,14 +154,14 @@ bool utils::isNegInt(const string arg)
 bool utils::isInt(const string arg)
 {
     std::stringstream ss(arg);
-    int n;
+    int n{};
     ss >> n;
     return !ss.fail() && ss.eof(); 
 }
 
 bool utils::isFloat(const string arg)
 {
-    float f;
+    float f{};
     std::istringstream iss(arg);
     iss >> std::noskipws >> f;
     return iss.eof() && !iss.fail();
@@ -182,13 +179,12 @@ float utils::toFloat(const string arg)
 
 bool utils::fileExists(const string name)
 {
-    bool value = false;
     std::ifstream f(name);
     if (f)
     {
-        value = true;
+        return true;
     }
-    return value;
+    return false;
 }
 
 int utils::fileWrite(const string name, const string text)
@@ -262,16 +258,11 @@ string utils::replaceChar(const string arg, const char oldChar, const char newCh
 
 bool utils::isSubString(const string arg1, const string arg2)
 {
-    bool value;
     if (arg2.find(arg1) != string::npos)
     {
-        value = true;
+        return true;
     }
-    else
-    {
-        value = false;
-    }
-    return value;
+    return false;
 }
 
 string utils::firstSlice(const string arg, const char delim)
@@ -420,7 +411,7 @@ string utils::removeLastLine(const string arg)
 string utils::insertSliceAt(const string arg, const string ins, const char delim, const int num)
 {
     string trim = trimWhiteSpace(arg);
-    string result;
+    string result{};
     int count = 1;
     while (count < num)
     {
@@ -475,22 +466,21 @@ void utils::appendVectorToFile(const string fileName, const vector<string> v)
 
 int utils::stringPosition(const string arg, const vector<string> v)
 {
-    int value = -1;
     int len = v.size();
     for (int i = 0; i < len; i++)
     {
         if (arg == v[i])
         {
-            value = i;
+            return i;
         }
     }
-    return value;
+    return -1;
 }
 
 vector<string> utils::splitStringByChar(const string arg, const char delim) 
 {
     int slices = sliceCount(arg, delim);
-    vector<string> result;
+    vector<string> result{};
     string currentSlice;
     for (int i = 0; i < slices; i++)
     {
@@ -503,8 +493,8 @@ vector<string> utils::splitStringByChar(const string arg, const char delim)
 vector<string> utils::splitStringBySpace(const string arg) 
 {
     int words = wordCount(arg);
-    vector<string> result;
-    string currentWord;
+    vector<string> result{};
+    string currentWord{};
     for (int i = 0; i < words; i++)
     {
         currentWord = nthWord(arg, i);
@@ -516,8 +506,8 @@ vector<string> utils::splitStringBySpace(const string arg)
 vector<string> utils::splitStringByNewline(const string arg) 
 {
     int lines = lineCount(arg);
-    vector<string> result;
-    string currentLine;
+    vector<string> result{};
+    string currentLine{};
     for (int i = 0; i < lines; i++)
     {
         currentLine = nthLine(arg, i);
@@ -528,7 +518,7 @@ vector<string> utils::splitStringByNewline(const string arg)
 
 vector<string> utils::removeEmptyStrings(const vector<string> arg)
 {
-    vector<string> result;
+    vector<string> result{};
     for (string s : arg)
     {
         if (s != "")
