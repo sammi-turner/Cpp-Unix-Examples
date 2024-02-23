@@ -1,14 +1,16 @@
 #include "utils.h"
 
-string utils::userInput()
+string utils::userInput(const string arg)
 {
+    cout << arg;
     string s{};
     std::getline(std::cin, s);
     return s;
 }
 
-string utils::trimmedUserInput()
+string utils::trimmedUserInput(const string arg)
 {
+    cout << arg;
     string s{};
     std::getline(std::cin >> std::ws, s);
     return s;
@@ -165,6 +167,39 @@ bool utils::isFloat(const string arg)
     std::istringstream iss(arg);
     iss >> std::noskipws >> f;
     return iss.eof() && !iss.fail();
+}
+
+bool utils::isMantissaZero(const string arg) 
+{
+    std::istringstream iss(arg);
+    float f;
+    iss >> std::noskipws >> f;
+    if (iss.fail() || !iss.eof()) 
+    {
+        return false;
+    }
+    return f - static_cast<int>(f) == 0.0f;
+}
+
+string utils::truncateExcessZeros(const string arg)
+{
+    string result = arg;
+    size_t decimalPos = result.find('.');
+    if (decimalPos == string::npos) 
+    {
+        return result;
+    }
+    size_t lastNonZeroPos = result.size() - 1;
+    while (lastNonZeroPos > decimalPos && result[lastNonZeroPos] == '0') 
+    {
+        --lastNonZeroPos;
+    }
+    if (result[lastNonZeroPos] == '.') 
+    {
+        --lastNonZeroPos;
+    }
+    result = result.substr(0, lastNonZeroPos + 1);
+    return result;
 }
 
 int utils::toInt(const string arg)
