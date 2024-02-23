@@ -8,6 +8,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cstdlib>
+#include <cmath>
 
 /* Shorthands */
 
@@ -17,8 +19,8 @@ using std::cout;
 
 namespace utils
 {   
-    string userInput();
-    string trimmedUserInput();
+    string userInput(const string arg);
+    string trimmedUserInput(const string arg);
     string trimWhiteSpace(const string arg);
 
     void shell(const string arg);
@@ -46,6 +48,9 @@ namespace utils
 
     bool isInt(const string arg);
     bool isFloat(const string arg);
+
+    bool isMantissaZero(const string arg);
+    string truncateExcessZeros(const string arg);
 
     int toInt(const string arg);
     float toFloat(const string arg);
