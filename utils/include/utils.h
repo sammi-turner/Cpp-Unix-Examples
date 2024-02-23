@@ -56,8 +56,8 @@ namespace utils
     float toFloat(const string arg);
 
     bool fileExists(const string name);
-    int fileWrite(const string name, string text);
-    void fileAppend(const string name, string text);
+    int fileWrite(const string name, const string text);
+    void fileAppend(const string name, const string text);
 
     string fileRead(const string name);
     void fileDelete(const string arg);
