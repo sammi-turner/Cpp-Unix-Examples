@@ -260,7 +260,7 @@ string utils::fileRead(const string name)
 
 void utils::fileDelete(const string arg)
 {
-    system(arg.c_str());
+    remove(arg.c_str());
 }
 
 int utils::charCount(const string arg, const char ch)
