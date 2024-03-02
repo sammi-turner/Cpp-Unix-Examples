@@ -1,1 +1,1 @@
-This folder is for binary files.
+This directory is for binary files.
