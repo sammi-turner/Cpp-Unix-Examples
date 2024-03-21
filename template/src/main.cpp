@@ -4,6 +4,6 @@ using namespace utils;
 
 int main() 
 {
-    string name = "world";
-    cout << format("Hello, {}. This is C++20!\n", name);
+    string name = userInput("Hello, what is your name? ");
+    cout << format("Welcome to C++20 {}!\n", name);
 }
