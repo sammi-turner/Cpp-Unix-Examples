@@ -266,7 +266,6 @@ void utils::fileDelete(const string arg)
 int utils::charCount(const string arg, const char ch)
 {
     int count = 0;
-    int len = arg.length();
     for (char c : arg)
     {
         if (c == ch)
