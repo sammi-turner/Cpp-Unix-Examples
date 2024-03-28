@@ -2,7 +2,7 @@
 CXX = clang++
 
 # Compiler flags
-CXXFLAGS = -std=c++20 -Iinclude -Wall -Wunused-function
+CXXFLAGS = -std=c++20 -Iinclude
 
 # Target executable name
 TARGET = main
