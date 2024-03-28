@@ -38,33 +38,9 @@ void utils::shell(const string arg)
     system(arg.c_str());
 }
 
-int utils::pseudo(const int arg) {
-    int result = 0;
-    if (arg > 1)
-    {
-        result = (rand() % arg) + 1;
-    }
-    return result;
-}
-
-void utils::seed() 
-{
-    srand((int)time(0));
-}
-
 bool utils::isCharDigit(const char arg)
 {
     return (isdigit(arg) > 0);
-}
-
-bool utils::isCharHexDigit(const char arg)
-{
-    return (isxdigit(arg) > 0);
-}
-
-bool utils::isCharAlphaNumeric(const char arg)
-{
-    return (isalnum(arg) > 0);
 }
 
 bool utils::isCharLetter(const char arg)
@@ -75,82 +51,6 @@ bool utils::isCharLetter(const char arg)
 bool utils::isCharLowerCase(const char arg)
 {
     return (islower(arg) > 0);
-}
-
-bool utils::isCharUpperCase(const char arg)
-{
-    return (isupper(arg) > 0);
-}
-
-bool utils::isCharPunct(const char arg)
-{
-    return (ispunct(arg) > 0);
-}
-
-bool utils::isCharWhiteSpace(const char arg)
-{
-    return (isspace(arg) > 0);
-}
-
-bool utils::isCharGraphical(const char arg)
-{
-    return (isgraph(arg) > 0);
-}
-
-bool utils::isLowerCase(const string arg)
-{
-    for (char c : arg)
-    {
-        if (!isCharLowerCase(c))
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool utils::isUpperCase(const string arg)
-{
-    for (char c : arg)
-    {
-        if (!isCharUpperCase(c))
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool utils::isAlphabetic(const string arg)
-{
-    for (char c : arg)
-    {
-        if (!isCharLowerCase(c) && !isCharUpperCase(c))
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool utils::isPosInt(const string arg)
-{
-    if (isInt(arg))
-    {
-        int n = toInt(arg);
-        return n > 0;
-    }
-    return false;
-}
-
-bool utils::isNegInt(const string arg)
-{
-    if (isInt(arg))
-    {
-        int n = toInt(arg);
-        return n < 0;
-    }
-    return false;
 }
 
 bool utils::isInt(const string arg)
@@ -212,39 +112,6 @@ float utils::toFloat(const string arg)
     return std::stof(arg);
 }
 
-bool utils::fileExists(const string name)
-{
-    std::ifstream f(name);
-    if (f)
-    {
-        return true;
-    }
-    return false;
-}
-
-int utils::fileWrite(const string name, const string text)
-{
-    std::ofstream myfile;
-    myfile.open(name);
-    if (myfile.is_open())
-    {
-        myfile << text;
-        myfile.close();
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
-
-void utils::fileAppend(const string name, const string text)
-{
-    std::ofstream outfile;
-    outfile.open(name, std::ios_base::app);
-    outfile << text;
-}
-
 string utils::fileRead(const string name)
 {
     std::ifstream f(name);
@@ -256,48 +123,6 @@ string utils::fileRead(const string name)
         value = ss.str();
     }
     return value;
-}
-
-void utils::fileDelete(const string arg)
-{
-    remove(arg.c_str());
-}
-
-int utils::charCount(const string arg, const char ch)
-{
-    int count = 0;
-    int len = arg.length();
-    for (char c : arg)
-    {
-        if (c == ch)
-        {
-            count++;
-        }
-    }
-    return count;
-}
-
-string utils::replaceChar(const string arg, const char oldChar, const char newChar)
-{
-    int len = arg.length();
-    string result = arg;
-    for (int i = 0; i < len; i++)
-    {
-        if (arg[i] == oldChar)
-        {
-            result[i] = newChar;
-        }
-    }
-    return result;
-}
-
-bool utils::isSubString(const string arg1, const string arg2)
-{
-    if (arg2.find(arg1) != string::npos)
-    {
-        return true;
-    }
-    return false;
 }
 
 string utils::firstSlice(const string arg, const char delim)
@@ -458,45 +283,11 @@ string utils::insertSliceAt(const string arg, const string ins, const char delim
     return (result + ins + delim + trim);
 }
 
-string utils::insertLineAt(const string arg, const string ins, const int num)
-{
-    return insertSliceAt(arg, ins, '\n', num);
-}
-
-string utils::insertWordAt(const string arg, const string ins, const int num)
-{
-    return insertSliceAt(arg, ins, ' ', num);
-}
-
 string utils::replaceSliceAt(const string arg, const string ins, const char delim, const int num)
 {
     string start = insertSliceAt(arg, ins, delim, num);
     string value = removeNthSlice(start, delim, (num + 1));
     return value;
-}
-
-string utils::replaceWordAt(const string arg, const string ins, const int num)
-{
-    string start = insertSliceAt(arg, ins, ' ', num);
-    string value = removeNthSlice(start, ' ', (num + 1));
-    return value;
-}
-
-string utils::replaceLineAt(const string arg, const string ins, const int num)
-{
-    string start = insertSliceAt(arg, ins, '\n', num);
-    string value = removeNthSlice(start, '\n', (num + 1));
-    return value;
-}
-
-void utils::appendVectorToFile(const string fileName, const vector<string> v)
-{
-    string current = "";
-    for (string s : v)
-    {
-        current = + "\n";
-        fileAppend(fileName, current);
-    }
 }
 
 int utils::stringPosition(const string arg, const vector<string> v)
@@ -512,19 +303,6 @@ int utils::stringPosition(const string arg, const vector<string> v)
     return -1;
 }
 
-vector<string> utils::splitStringByChar(const string arg, const char delim) 
-{
-    int slices = sliceCount(arg, delim);
-    vector<string> result{};
-    string currentSlice;
-    for (int i = 0; i < slices; i++)
-    {
-        currentSlice = nthSlice(arg, '|', i);
-        result.push_back(currentSlice);
-    }
-    return result;
-}
-
 vector<string> utils::splitStringBySpace(const string arg) 
 {
     int words = wordCount(arg);
@@ -538,19 +316,6 @@ vector<string> utils::splitStringBySpace(const string arg)
     return result;
 }
 
-vector<string> utils::splitStringByNewline(const string arg) 
-{
-    int lines = lineCount(arg);
-    vector<string> result{};
-    string currentLine{};
-    for (int i = 0; i < lines; i++)
-    {
-        currentLine = nthLine(arg, i);
-        result.push_back(currentLine);
-    }
-    return result;
-}
-
 vector<string> utils::removeEmptyStrings(const vector<string> arg)
 {
     vector<string> result{};
@@ -560,24 +325,6 @@ vector<string> utils::removeEmptyStrings(const vector<string> arg)
         {
             result.push_back(s);
         }
-    }
-    return result;
-}
-
-vector<string> utils::concatStringVectors(const vector<string> arg1, const vector<string> arg2)
-{
-    vector<string> result = arg1;
-    result.insert(result.end(), arg2.begin(), arg2.end());
-    return result;
-}
-
-vector<string> utils::reverseStringVector(const vector<string> arg)
-{
-    vector<string> result;
-    int size = arg.size();
-    for (int i = 1; i <= size; i++)
-    {
-        result.push_back(arg[size - i]);
     }
     return result;
 }
